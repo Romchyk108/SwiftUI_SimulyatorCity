@@ -7,15 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D4668B72A6407F7009F52D8 /* HousesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668B62A6407F7009F52D8 /* HousesList.swift */; };
+		8D4668BA2A64082C009F52D8 /* HouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668B92A64082C009F52D8 /* HouseModel.swift */; };
+		8D4668BC2A642FAE009F52D8 /* HouseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668BB2A642FAE009F52D8 /* HouseManager.swift */; };
+		8D4668BE2A6432BF009F52D8 /* HouseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668BD2A6432BF009F52D8 /* HouseRow.swift */; };
+		8D4668C02A643420009F52D8 /* HouseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668BF2A643420009F52D8 /* HouseDetailView.swift */; };
+		8D532C092A4B5FE700F66DAB /* GeneratingEnergyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C082A4B5FE700F66DAB /* GeneratingEnergyList.swift */; };
+		8D532C0B2A4B621900F66DAB /* GeneratingEnergyUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C0A2A4B621900F66DAB /* GeneratingEnergyUnit.swift */; };
+		8D532C0D2A4C3B0D00F66DAB /* GeneratingEnergyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C0C2A4C3B0D00F66DAB /* GeneratingEnergyRow.swift */; };
+		8D532C102A4C7DE700F66DAB /* GeneratingEnergyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C0F2A4C7DE600F66DAB /* GeneratingEnergyDetailView.swift */; };
+		8D532C122A4CB66B00F66DAB /* FinishedMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C112A4CB66B00F66DAB /* FinishedMark.swift */; };
+		8D532C142A4D42AD00F66DAB /* GeneratingEnergyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C132A4D42AD00F66DAB /* GeneratingEnergyManager.swift */; };
+		8D532C6F2A5095B400F66DAB /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C6E2A5095B400F66DAB /* PieSliceView.swift */; };
+		8D532C712A50B38800F66DAB /* PieCharView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C702A50B38800F66DAB /* PieCharView.swift */; };
+		8D6DC4B02A64799000D30F44 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6DC4AF2A64799000D30F44 /* Money.swift */; };
 		8DFF7BAC2A48900D00E44077 /* SimulatorSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BAB2A48900D00E44077 /* SimulatorSwiftUIApp.swift */; };
 		8DFF7BAE2A48900D00E44077 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BAD2A48900D00E44077 /* ContentView.swift */; };
 		8DFF7BB02A48900F00E44077 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DFF7BAF2A48900F00E44077 /* Assets.xcassets */; };
 		8DFF7BB32A48900F00E44077 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DFF7BB22A48900F00E44077 /* Preview Assets.xcassets */; };
 		8DFF7BB52A48900F00E44077 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BB42A48900F00E44077 /* Persistence.swift */; };
 		8DFF7BB82A48900F00E44077 /* SimulatorSwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BB62A48900F00E44077 /* SimulatorSwiftUI.xcdatamodeld */; };
+		8DFF7BBF2A48916700E44077 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BBE2A48916700E44077 /* DashboardView.swift */; };
+		8DFF7BC12A48970B00E44077 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BC02A48970B00E44077 /* PlayButton.swift */; };
+		8DFF7BC32A48A08000E44077 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BC22A48A08000E44077 /* Dashboard.swift */; };
+		8DFF7BC52A48A6FA00E44077 /* DashboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BC42A48A6FA00E44077 /* DashboardManager.swift */; };
+		8DFF7BC92A48A86E00E44077 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BC82A48A86E00E44077 /* Extensions.swift */; };
+		8DFF7BCB2A48C56800E44077 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BCA2A48C56800E44077 /* DashboardModel.swift */; };
+		8DFF7BF82A4ABC6500E44077 /* MainRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BF72A4ABC6500E44077 /* MainRowView.swift */; };
+		8DFF7BFB2A4ABF0300E44077 /* MainRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BFA2A4ABF0300E44077 /* MainRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D4668B62A6407F7009F52D8 /* HousesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesList.swift; sourceTree = "<group>"; };
+		8D4668B92A64082C009F52D8 /* HouseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseModel.swift; sourceTree = "<group>"; };
+		8D4668BB2A642FAE009F52D8 /* HouseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseManager.swift; sourceTree = "<group>"; };
+		8D4668BD2A6432BF009F52D8 /* HouseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseRow.swift; sourceTree = "<group>"; };
+		8D4668BF2A643420009F52D8 /* HouseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailView.swift; sourceTree = "<group>"; };
+		8D532C082A4B5FE700F66DAB /* GeneratingEnergyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingEnergyList.swift; sourceTree = "<group>"; };
+		8D532C0A2A4B621900F66DAB /* GeneratingEnergyUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingEnergyUnit.swift; sourceTree = "<group>"; };
+		8D532C0C2A4C3B0D00F66DAB /* GeneratingEnergyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingEnergyRow.swift; sourceTree = "<group>"; };
+		8D532C0F2A4C7DE600F66DAB /* GeneratingEnergyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingEnergyDetailView.swift; sourceTree = "<group>"; };
+		8D532C112A4CB66B00F66DAB /* FinishedMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedMark.swift; sourceTree = "<group>"; };
+		8D532C132A4D42AD00F66DAB /* GeneratingEnergyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingEnergyManager.swift; sourceTree = "<group>"; };
+		8D532C6E2A5095B400F66DAB /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
+		8D532C702A50B38800F66DAB /* PieCharView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieCharView.swift; sourceTree = "<group>"; };
+		8D6DC4AF2A64799000D30F44 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		8DFF7BA82A48900D00E44077 /* SimulatorSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimulatorSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DFF7BAB2A48900D00E44077 /* SimulatorSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorSwiftUIApp.swift; sourceTree = "<group>"; };
 		8DFF7BAD2A48900D00E44077 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +59,14 @@
 		8DFF7BB22A48900F00E44077 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8DFF7BB42A48900F00E44077 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		8DFF7BB72A48900F00E44077 /* SimulatorSwiftUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimulatorSwiftUI.xcdatamodel; sourceTree = "<group>"; };
+		8DFF7BBE2A48916700E44077 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		8DFF7BC02A48970B00E44077 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		8DFF7BC22A48A08000E44077 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		8DFF7BC42A48A6FA00E44077 /* DashboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardManager.swift; sourceTree = "<group>"; };
+		8DFF7BC82A48A86E00E44077 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8DFF7BCA2A48C56800E44077 /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		8DFF7BF72A4ABC6500E44077 /* MainRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRowView.swift; sourceTree = "<group>"; };
+		8DFF7BFA2A4ABF0300E44077 /* MainRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +80,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D4668B82A64080B009F52D8 /* Houses */ = {
+			isa = PBXGroup;
+			children = (
+				8D4668BF2A643420009F52D8 /* HouseDetailView.swift */,
+				8D4668BD2A6432BF009F52D8 /* HouseRow.swift */,
+				8D4668B62A6407F7009F52D8 /* HousesList.swift */,
+				8D4668B92A64082C009F52D8 /* HouseModel.swift */,
+				8D4668BB2A642FAE009F52D8 /* HouseManager.swift */,
+			);
+			path = Houses;
+			sourceTree = "<group>";
+		};
+		8D532C0E2A4C6ED900F66DAB /* GenerationEnergy */ = {
+			isa = PBXGroup;
+			children = (
+				8D532C132A4D42AD00F66DAB /* GeneratingEnergyManager.swift */,
+				8D532C082A4B5FE700F66DAB /* GeneratingEnergyList.swift */,
+				8D532C0F2A4C7DE600F66DAB /* GeneratingEnergyDetailView.swift */,
+				8D532C0C2A4C3B0D00F66DAB /* GeneratingEnergyRow.swift */,
+				8D532C0A2A4B621900F66DAB /* GeneratingEnergyUnit.swift */,
+			);
+			path = GenerationEnergy;
+			sourceTree = "<group>";
+		};
 		8DFF7B9F2A48900D00E44077 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +125,11 @@
 			children = (
 				8DFF7BAB2A48900D00E44077 /* SimulatorSwiftUIApp.swift */,
 				8DFF7BAD2A48900D00E44077 /* ContentView.swift */,
+				8D4668B82A64080B009F52D8 /* Houses */,
+				8D532C0E2A4C6ED900F66DAB /* GenerationEnergy */,
+				8DFF7BF92A4ABED000E44077 /* MainRow */,
+				8DFF7BC62A48A80000E44077 /* Dashboard */,
+				8DFF7BC72A48A84100E44077 /* Helpers */,
 				8DFF7BAF2A48900F00E44077 /* Assets.xcassets */,
 				8DFF7BB42A48900F00E44077 /* Persistence.swift */,
 				8DFF7BB62A48900F00E44077 /* SimulatorSwiftUI.xcdatamodeld */,
@@ -71,6 +144,39 @@
 				8DFF7BB22A48900F00E44077 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8DFF7BC62A48A80000E44077 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				8DFF7BBE2A48916700E44077 /* DashboardView.swift */,
+				8DFF7BC42A48A6FA00E44077 /* DashboardManager.swift */,
+				8D6DC4AF2A64799000D30F44 /* Money.swift */,
+				8DFF7BC22A48A08000E44077 /* Dashboard.swift */,
+				8DFF7BCA2A48C56800E44077 /* DashboardModel.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		8DFF7BC72A48A84100E44077 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8D532C112A4CB66B00F66DAB /* FinishedMark.swift */,
+				8DFF7BC82A48A86E00E44077 /* Extensions.swift */,
+				8DFF7BC02A48970B00E44077 /* PlayButton.swift */,
+				8D532C6E2A5095B400F66DAB /* PieSliceView.swift */,
+				8D532C702A50B38800F66DAB /* PieCharView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8DFF7BF92A4ABED000E44077 /* MainRow */ = {
+			isa = PBXGroup;
+			children = (
+				8DFF7BF72A4ABC6500E44077 /* MainRowView.swift */,
+				8DFF7BFA2A4ABF0300E44077 /* MainRow.swift */,
+			);
+			path = MainRow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,10 +249,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D532C122A4CB66B00F66DAB /* FinishedMark.swift in Sources */,
+				8DFF7BCB2A48C56800E44077 /* DashboardModel.swift in Sources */,
+				8DFF7BFB2A4ABF0300E44077 /* MainRow.swift in Sources */,
+				8D532C0D2A4C3B0D00F66DAB /* GeneratingEnergyRow.swift in Sources */,
+				8DFF7BC32A48A08000E44077 /* Dashboard.swift in Sources */,
+				8D4668BE2A6432BF009F52D8 /* HouseRow.swift in Sources */,
+				8DFF7BC92A48A86E00E44077 /* Extensions.swift in Sources */,
+				8DFF7BC12A48970B00E44077 /* PlayButton.swift in Sources */,
 				8DFF7BB82A48900F00E44077 /* SimulatorSwiftUI.xcdatamodeld in Sources */,
 				8DFF7BB52A48900F00E44077 /* Persistence.swift in Sources */,
+				8DFF7BC52A48A6FA00E44077 /* DashboardManager.swift in Sources */,
+				8D532C0B2A4B621900F66DAB /* GeneratingEnergyUnit.swift in Sources */,
+				8D532C712A50B38800F66DAB /* PieCharView.swift in Sources */,
+				8D532C142A4D42AD00F66DAB /* GeneratingEnergyManager.swift in Sources */,
+				8D532C092A4B5FE700F66DAB /* GeneratingEnergyList.swift in Sources */,
+				8DFF7BBF2A48916700E44077 /* DashboardView.swift in Sources */,
+				8D6DC4B02A64799000D30F44 /* Money.swift in Sources */,
 				8DFF7BAE2A48900D00E44077 /* ContentView.swift in Sources */,
+				8D4668BA2A64082C009F52D8 /* HouseModel.swift in Sources */,
+				8D532C6F2A5095B400F66DAB /* PieSliceView.swift in Sources */,
 				8DFF7BAC2A48900D00E44077 /* SimulatorSwiftUIApp.swift in Sources */,
+				8D4668C02A643420009F52D8 /* HouseDetailView.swift in Sources */,
+				8D4668BC2A642FAE009F52D8 /* HouseManager.swift in Sources */,
+				8D532C102A4C7DE700F66DAB /* GeneratingEnergyDetailView.swift in Sources */,
+				8D4668B72A6407F7009F52D8 /* HousesList.swift in Sources */,
+				8DFF7BF82A4ABC6500E44077 /* MainRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
