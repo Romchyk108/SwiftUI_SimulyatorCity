@@ -8,25 +8,19 @@
 import SwiftUI
 
 struct HousesList: View {
-    @EnvironmentObject var manager: HouseManager
+    @Binding var houseManagers: [HouseManager]
+    
     var body: some View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(manager.houses, id: \.self.id) { house in
+                    ForEach(houseManagers.indices, id: \.self) { index in
                         NavigationLink {
-                            HouseDetailView()
-                                .environmentObject(house)
-                                .environmentObject(manager)
+                            HouseDetailView(houseManager: $houseManagers[index])
                         } label: {
-                            HouseRow()
-                                .environmentObject(house)
+                            HouseRow(manager: $houseManagers[index])
                         }
                     }
-
-//                    PieChartView()
-//                        .environmentObject(manager)
-//                        .frame(width: 300, height: 300)
                 }
             }
         }
@@ -36,9 +30,8 @@ struct HousesList: View {
 }
 
 struct HousesList_Previews: PreviewProvider {
-    static let manager = HouseManager()
     static var previews: some View {
-        HousesList()
-            .environmentObject(manager)
+        HousesList(houseManagers: .constant(HouseManager.houseManagers))
+//            .environmentObject(manager)
     }
 }

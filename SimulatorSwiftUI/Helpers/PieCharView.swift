@@ -8,26 +8,18 @@
 import SwiftUI
 
 struct PieChartView: View {
-    @EnvironmentObject var manager: GeneratingEnergyManager
+    @Binding var energyManagers: [GeneratingEnergyManager]
+    @State var slicesModel = PieSliceDataModel()
     
-    var values: [Double] {
-        manager.units.map{ $0.powerPerUnit * Double($0.count) }
-    }
     var colors: [Color] {
-        manager.units.map{ $0.color }
-    }
-    
-    var slicesModel: PieSliceDataModel {
-        let model = PieSliceDataModel(units: manager.units)
-        return model
+        energyManagers.map{ $0.energyModel.color }
     }
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                ForEach(slicesModel.slices) { slice in
-                    PieSliceView()
-                        .environmentObject(slice)
+                ForEach(slicesModel.slices.indices) { index in
+                    PieSliceView(pieSlice: $slicesModel.slices[index])
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 Circle()
@@ -36,7 +28,7 @@ struct PieChartView: View {
                     Text("Total")
                         .font(.title)
                         .foregroundColor(Color.gray)
-                    Text(String(slicesModel.sum.scalePower)) //values.reduce(0, +).scalePower))
+                    Text(String(slicesModel.sum.scalePower))
                         .font(.title)
                         .foregroundColor(.white)
                 }
@@ -45,21 +37,21 @@ struct PieChartView: View {
     }
 }
 
-class PieSliceDataModel: ObservableObject, Identifiable {
-    @Published var slices: [PieSliceData] = []
-    @Published var sum: Double
+struct PieSliceDataModel {
+    var slices: [PieSliceData] = []
+    let sum: Double
     
-    init(units: [GeneratingEnergy]) {
-        self.sum = units.map{ $0.powerPerUnit * Double($0.count) }.reduce(0, +)
+    init() {
+        self.sum = GeneratingEnergyManager.energyManagers.map{ $0.energyModel.powerPerUnit * Double($0.count) * $0.coefficientDependentWeather }.reduce(0, +)
         var endDeg: Double = 0
         
-        for (unit) in units {
-            let degrees: Double = unit.totalPower * 360 / sum
-            slices.append(PieSliceData(id: unit.id,
+        for energyManager in GeneratingEnergyManager.energyManagers {
+            let degrees: Double = energyManager.totalPower * 360 / sum
+            slices.append(PieSliceData(id: energyManager.energyModel.id,
                                        startAngle: Angle(degrees: endDeg),
                                        endAngle: Angle(degrees: endDeg + degrees),
-                                       unit: unit,
-                                       value: unit.totalPower * 100 / sum))
+                                       unit: energyManager,
+                                       value: energyManager.totalPower * 100 / sum))
             endDeg += degrees
         }
     }
@@ -67,11 +59,7 @@ class PieSliceDataModel: ObservableObject, Identifiable {
 
 
 struct PieChartView_Previews: PreviewProvider {
-    static var manager = GeneratingEnergyManager(sesRoof: SesRoof(), sesGround: SesGround(), wes: WindPowerPlant(), bpp: BiogasPowerPlant(), smallhpp: SmallHydroPowerPlant(), hpp: HydroPowerPlant(), tpp: ThermalPowerPlant(), npp: NuclearPowerPlant())
-    static var arrayGeneratings = [SesRoof(), WindPowerPlant()]
-    
     static var previews: some View {
-        PieChartView()
-            .environmentObject(manager)
+        PieChartView(energyManagers: .constant(GeneratingEnergyManager.energyManagers))
     }
 }

@@ -8,34 +8,26 @@
 import SwiftUI
 
 struct GeneratingEnergyList: View {
-    @EnvironmentObject var manager: GeneratingEnergyManager
+    @Binding var managers: [GeneratingEnergyManager]
     
     var body: some View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(manager.units, id: \.self.id) { energyUnit in
+                    ForEach(managers.indices, id: \.self) { index in
                         NavigationLink {
-                            GeneratingEnergyDetailView()
-                                .environmentObject(energyUnit)
-                                .environmentObject(manager)
+                            GeneratingEnergyDetailView(manager: $managers[index])
                         } label: {
-                            GeneratingEnergyRow()
-                                .environmentObject(energyUnit)
+                            GeneratingEnergyRow(energyManager: $managers[index])
                         }
                     }
-                    
-                    //                    PieChartView()
-                    //                        .environmentObject(manager)
-                    //                        .frame(width: 300, height: 300)
+                    PieChartView(energyManagers: $managers)
+                        .frame(width: 300, height: 300)
                 }
-                PieChartView()
-                    .environmentObject(manager)
-                    .frame(width: 250, height: 250)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Generating Energy")
+        .navigationTitle(localizedString("GeneratingEnergy"))
     }
     
     private func createCustomBinding<T>(_ data: [T]) -> Binding<[T]> {
@@ -46,9 +38,7 @@ struct GeneratingEnergyList: View {
 }
 
 struct GeneratingEnergyView_Previews: PreviewProvider {
-    static var manager = GeneratingEnergyManager(sesRoof: SesRoof(), sesGround: SesGround(), wes: WindPowerPlant(), bpp: BiogasPowerPlant(), smallhpp: SmallHydroPowerPlant(), hpp: HydroPowerPlant(), tpp: ThermalPowerPlant(), npp: NuclearPowerPlant())
     static var previews: some View {
-        GeneratingEnergyList()
-            .environmentObject(manager)
+        GeneratingEnergyList(managers: .constant(GeneratingEnergyManager.energyManagers))
     }
 }

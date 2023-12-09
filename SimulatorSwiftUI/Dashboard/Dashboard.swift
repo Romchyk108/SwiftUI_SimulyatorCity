@@ -16,6 +16,7 @@ struct Dashboard {
     var money: Int
     var workers: Int
     var people: Int
+    var placesForPeople: Int
     var date: String
     var weather: String
     var energyPrice: Double

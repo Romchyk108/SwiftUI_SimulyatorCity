@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  SimulatorSwiftUI
+
+  Created by Roman Shestopal on 04.09.2023.
+  
+*/
+
+"Welcome" = "Welcome";
+"Back" = "Back";
+"GeneratingEnergy" = "GeneratingEnergy";
+"Main" = "Main";
+"kW*h" = "kW*h";

@@ -12,6 +12,10 @@ var mainRows: [MainRow] = [MainRow(id: 0, title: "Generating Energy", image: "ge
                            MainRow(id: 1, title: "Hauses", image: "mainRowHause", description: "Some description2"),
                            MainRow(id: 2, title: "Engineering", image: "engineering", description: "Some description3")]
 
+func localizedString(_ text: String) -> String {
+    NSLocalizedString(text, comment: "")
+}
+
 struct ContentView: View {
     @EnvironmentObject var dashboardManager: DashboardManager
     
@@ -24,14 +28,16 @@ struct ContentView: View {
                 NavigationStack {
                     List(mainRows) { row in
                         NavigationLink {
-                            if row.id == 0 {
-                                GeneratingEnergyList()
-                                    .environmentObject(dashboardManager.energyManager)
-                            } else if row.id == 1 {
-                                HousesList()
-                                    .environmentObject(dashboardManager.houseManager)
+                            switch row.id {
+                            case 0:
+                                GeneratingEnergyList(managers: $dashboardManager.energySources)
+                            case 1:
+                                HousesList(houseManagers: $dashboardManager.houses)
+                            case 2:
+                                EngineeringView()
+                            default:
+                                EngineeringView()
                             }
-                            
                         } label: {
                             MainRowView(mainRow: row)
                         }
@@ -45,8 +51,6 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    @StateObject var modelData = DashboardModel()
-    
     static var previews: some View {
         ContentView()
             .environmentObject(DashboardModel().dashboardManager)

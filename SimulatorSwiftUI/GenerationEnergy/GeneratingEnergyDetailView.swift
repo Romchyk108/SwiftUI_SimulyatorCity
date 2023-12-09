@@ -8,81 +8,119 @@
 import SwiftUI
 
 struct GeneratingEnergyDetailView: View {
-    @EnvironmentObject var unit: GeneratingEnergy
-    @EnvironmentObject var manager: GeneratingEnergyManager
+    @Binding var manager: GeneratingEnergyManager
+    @State private var showingAlert = false
+    
+    private var process: Double {
+        manager.getProgressValue(for: manager)
+    }
+    private var canTappedPlus: Bool {
+        manager.canTappedPlus(manager)
+    }
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 10) {
-                Image(unit.image)
+                Image(manager.energyModel.image)
                     .resizable()
                     .clipShape(Circle())
                     .frame(width: 200, height: 200, alignment: .center)
-                Text("\(unit.title) - \(unit.price.scale)$")
+                    .onTapGesture {
+                        guard canTappedPlus else {
+                            showingAlert = true
+                            return
+                        }
+                        manager.tappedPlus(unit: manager)
+                    }
+                Text("\(manager.energyModel.title) - \(manager.energyModel.price.scale)$")
                     .font(.system(size: 14))
+                Text(manager.energyModel.description)
+                    .font(.system(size: 12))
                 Button {
-                    print("+ \(unit.title)")
-                    unit.touchPlusButton()
+                    guard canTappedPlus else {
+                        showingAlert = true
+                        return
+                    }
+                    manager.tappedPlus(unit: manager)
                 } label: {
                     Label("Add SES", systemImage: "plus")
                         .labelStyle(.iconOnly)
                         .frame(width: 50, height: 30)
-                        .border(Color.green, width: 2)
+                        .background(canTappedPlus ? .green : .gray)
                         .cornerRadius(12)
                 }
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text(manager.errorMessage), dismissButton: .default(Text("Dismiss")))
+                }
                 VStack(spacing: 10) {
-                    HStack(spacing: 50) {
-                        Text("\(unit.count.scale)")
-                        Text("\(unit.numberForBuild.scale)")
+                    HStack {
+                        Text("\(manager.count.scale)")
+                        Spacer()
+                        if manager.energyModel.id == 0, !canTappedPlus {
+                            Text("Not enough houses")
+                                .font(.system(size: 12))
+                            Spacer()
+                        }
+                        if manager.numberForBuild != 0 {
+                            Text("\(manager.numberForBuild.scale)")
+                        }
                     }
                     .padding(.horizontal)
-                    HStack(spacing: 50) {
+                    
+                    HStack {
                         HStack() {
                             Image(systemName: "bolt")
                                 .foregroundColor(.green)
-                            Text("\(unit.totalPower.scalePower)")
+                            Text("\(manager.totalPower.scalePower)")
                         }
-                        .multilineTextAlignment(.leading)
+                        Spacer()
                         HStack() {
                             Image(systemName: "bolt")
                                 .foregroundColor(.green)
-                            Text("\((unit.powerPerUnit * Double(unit.numberForBuild)).scalePower)")
+                            Text("\((manager.energyModel.powerPerUnit * Double(manager.numberForBuild)).scalePower)")
                         }
-                        .multilineTextAlignment(.trailing)
                     }
                     .font(.system(size: 14))
                     .padding(.horizontal)
-                    Spacer()
-                    HStack(spacing: 50) {
+                    
+                    HStack {
                         HStack() {
                             Image(systemName: "person.2.badge.gearshape")
                                 .foregroundColor(.blue)
-                            Text("\(unit.totalWorkers)")
+                            Text("\(manager.totalWorkers.scale)")
                         }
-                        .multilineTextAlignment(.leading)
+                        Spacer()
                         HStack() {
                             Image(systemName: "person.2.badge.gearshape")
                                 .foregroundColor(.blue)
-                            Text("+ \((unit.workerPerUnit * Double(unit.numberForBuild)).scale)")
+                            Text("+ \((manager.energyModel.workerPerUnit * Double(manager.numberForBuild)).scale)")
                         }
-                        .multilineTextAlignment(.trailing)
                     }
-                    HStack(spacing: 10) {
+                    .font(.system(size: 14))
+                    .padding(.horizontal)
+                    
+                    HStack {
+                        if !manager.finishTime.isEmpty {
+                            ProgressView(value: process, label: {
+                                Text(String(format: "%2.1f", (process * 100)) + "%")
+                            })
+                        }
+                        Spacer()
                         Image(systemName: "clock")
                             .foregroundColor(.blue)
-                        Text(unit.timeForBuilding.scaleDate)
+                        Text(manager.energyModel.timeForBuilding.scaleDate)
                     }
-                    .padding(.leading, 90)
-                    .multilineTextAlignment(.trailing)
+                    .padding(.horizontal)
                     .font(.system(size: 14))
                 }
                 .padding(.horizontal, 5)
-                .padding(.vertical)
+                
                 VStack(spacing: 10) {
-                    if !unit.finishTime.isEmpty {
+                    if !manager.finishTime.isEmpty {
                         Image(systemName: "clock.badge.checkmark")
                             .foregroundColor(.blue)
                         VStack {
-                            ForEach(unit.finishTime, id: \.self) { date in
+                            ForEach(manager.finishTime, id: \.self) { date in
                                 Text("\(manager.createTimeLine(time: date))")
                             }
                         }
@@ -90,15 +128,12 @@ struct GeneratingEnergyDetailView: View {
                 }
             }
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 10)
     }
 }
 
 struct GeneratingEnergyDetailView_Previews: PreviewProvider {
-    static var manager = GeneratingEnergyManager(sesRoof: SesRoof(), sesGround: SesGround(), wes: WindPowerPlant(), bpp: BiogasPowerPlant(), smallhpp: SmallHydroPowerPlant(), hpp: HydroPowerPlant(), tpp: ThermalPowerPlant(), npp: NuclearPowerPlant())
     static var previews: some View {
-        GeneratingEnergyDetailView()
-            .environmentObject(manager.units[0])
-            .environmentObject(manager)
+        GeneratingEnergyDetailView(manager: .constant(GeneratingEnergyManager.energyManagers[2]))
     }
 }

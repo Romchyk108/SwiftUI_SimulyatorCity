@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PieSliceView: View {
-    @EnvironmentObject var pieSlice: PieSliceData
+    @Binding var pieSlice: PieSliceData
     var midRadian: Double {
         Double.pi / 2.0 - (pieSlice.startAngle + pieSlice.endAngle).radians / 2.0
     }
@@ -31,7 +31,7 @@ struct PieSliceView: View {
                         endAngle: Angle(degrees: -90.0) + pieSlice.endAngle,
                         clockwise: false)
                 }
-                .fill(pieSlice.unit.color)
+                .fill(pieSlice.unit.energyModel.color)
                 if pieSlice.value > 0.0 {
                     Text("\(String(format: "%.1f", pieSlice.value))%")
                         .position(x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.78 * cos(self.midRadian)),
@@ -45,14 +45,14 @@ struct PieSliceView: View {
     }
 }
 
-class PieSliceData: ObservableObject, Identifiable {
-    var id: Int
-    var startAngle: Angle
-    var endAngle: Angle
-    @Published var unit: GeneratingEnergy
-    var value: Double
+struct PieSliceData {
+    let id: Int
+    let startAngle: Angle
+    let endAngle: Angle
+    let unit: GeneratingEnergyManager
+    let value: Double
 
-    init(id: Int, startAngle: Angle, endAngle: Angle, unit: GeneratingEnergy, value: Double) {
+    init(id: Int, startAngle: Angle, endAngle: Angle, unit: GeneratingEnergyManager, value: Double) {
         self.id = id
         self.startAngle = startAngle
         self.endAngle = endAngle
@@ -62,9 +62,8 @@ class PieSliceData: ObservableObject, Identifiable {
 }
 
 struct PieSliceView_Previews: PreviewProvider {
-    static let pieSlice = PieSliceData(id: 0, startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 120.0), unit: SesRoof(), value: 45.9)
+    static let pieSlice = PieSliceData(id: 0, startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 120.0), unit: GeneratingEnergyManager.energyManagers[1], value: 45.9)
     static var previews: some View {
-        PieSliceView()
-            .environmentObject(pieSlice)
+        PieSliceView(pieSlice: .constant(pieSlice))
     }
 }

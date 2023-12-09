@@ -11,61 +11,76 @@ struct DashboardView: View {
     @EnvironmentObject var manager: DashboardManager
     @Binding var board: Dashboard
     var body: some View {
-        HStack(spacing: 25) {
-            VStack(spacing: 10) {
+        HStack {
+            VStack(alignment: .leading, spacing: 10) {
                 HStack {
-                    Image(systemName: "dollarsign")
-                    Text("-  \(manager.dashboard.money.scale)")
+                    Text(manager.dashboard.date)
+                        .monospacedDigit()
+                        .font(.system(size: 14))
+                        .lineLimit(1)
                 }
+                .font(.system(size: 14))
                 HStack {
                     Image(systemName: "person.2.badge.gearshape.fill")
-                    Text("-  \(manager.dashboard.workers.scale)")
+                    Text("\(manager.dashboard.workers.scale)")
                 }
                 HStack {
                     Image(systemName: "person.3.fill")
-                    Text("-  \(manager.dashboard.people.scale)")
+                    Text("\(manager.dashboard.people.scale) / \(manager.placesForPeople.scale)")
+                        .background(manager.people > manager.placesForPeople ? .red : .clear)
+                    Image(systemName: "person.badge.key.fill")
                 }
             }
             .font(.system(size: 14))
+            
+            Spacer()
             VStack(spacing: 10) {
                 PlayButtons(state: $manager.dashboard.state, manager: manager)
-                    .frame(width: 80, height: 25)
-                Text(manager.dashboard.date)
-                    .font(.system(size: 14))
-                    .lineLimit(1)
-                    .frame(width: 120)
+                    .frame(width: 100, height: 25)
+                
                 Image(systemName: manager.dashboard.weather)
                     .frame(width: 25, height: 25)
+                    .monospacedDigit()
             }
-            .padding(10)
-            VStack(spacing: 10) {
+            
+            Spacer()
+            VStack(alignment: .trailing, spacing: 10) {
                 HStack {
-                    Image(systemName: "bolt")
-                        .foregroundColor(.yellow)
-                    Text("-  \(manager.dashboard.energyPrice.scale)$")
-                        .font(.system(size: 14))
+                    Image(systemName: "dollarsign")
+                    Text("\(manager.dashboard.money.scale)")
+                    Text("+ \(manager.profit.scale)$")
                 }
+                .frame(width: 120)
                 HStack {
+                    Text("\(manager.dashboard.generatedEnergy.scalePower)")
+                        .background(manager.dashboard.generatedEnergy < manager.dashboard.consumeEnergy ? .red : .clear)
+                        .font(.system(size: 14))
+                        .lineLimit(1)
+                        .monospacedDigit()
                     Image(systemName: "bolt")
                         .foregroundColor(.green)
-                    Text("-  \(manager.dashboard.generatedEnergy.scalePower)")
-                        .font(.system(size: 14))
                 }
                 HStack {
+                    Text("\(manager.dashboard.consumeEnergy.scalePower)")
+                        .font(.system(size: 14))
+                        .lineLimit(1)
+                        .monospacedDigit()
                     Image(systemName: "bolt.ring.closed")
                         .foregroundColor(.red)
-                    Text("-  \(manager.dashboard.consumeEnergy.scalePower)")
-                        .font(.system(size: 14))
                 }
             }
+            .font(.system(size: 14))
+            .padding(.vertical)
         }
+        .padding(.horizontal)
     }
 }
 
 struct DashboardView_Previews: PreviewProvider {
+    static let dashboardManager = DashboardModel().dashboardManager
     static var previews: some View {
-        ContentView()
-            .environmentObject(DashboardModel())
+        DashboardView(board: .constant(Self.dashboardManager.dashboard))
+            .environmentObject(dashboardManager)
     }
 }
 

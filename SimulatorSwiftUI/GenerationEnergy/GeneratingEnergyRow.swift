@@ -8,34 +8,34 @@
 import SwiftUI
 
 struct GeneratingEnergyRow: View {
-    @EnvironmentObject var energyUnit: GeneratingEnergy
+    @Binding var energyManager: GeneratingEnergyManager
     
     var body: some View {
         HStack(spacing: 10) {
-            Image(energyUnit.image)
+            Image(energyManager.energyModel.image)
                 .resizable()
                 .frame(width: 150, height: 150)
                 .aspectRatio(contentMode: .fill)
                 .clipShape(Circle())
             VStack(spacing: 10) {
-                Text(energyUnit.title)
+                Text(energyManager.energyModel.title)
                     .font(.system(size: 14))
                     .lineLimit(2)
                     .multilineTextAlignment(.center)
                     .padding(.all, 10)
-                    .background(energyUnit.color)
+                    .background(energyManager.energyModel.color)
                     .cornerRadius(10)
                 HStack(spacing: 10) {
                         Image(systemName: "bolt")
                             .foregroundColor(.green)
-                        Text("\(energyUnit.totalPower.scalePower)")
+                        Text("\(energyManager.totalPower.scalePower)")
                             .font(.system(size: 14))
                 }
                 .multilineTextAlignment(.center)
                 HStack(spacing: 10) {
                         Image(systemName: "person.2.badge.gearshape")
                             .foregroundColor(.blue)
-                        Text("\(energyUnit.totalWorkers)")
+                        Text("\(energyManager.totalWorkers)")
                             .font(.system(size: 14))
                 }
                 .multilineTextAlignment(.center)
@@ -45,9 +45,7 @@ struct GeneratingEnergyRow: View {
 }
 
 struct GeneratingEnergyRow_Previews: PreviewProvider {
-    static var manager = GeneratingEnergyManager(sesRoof: SesRoof(), sesGround: SesGround(), wes: WindPowerPlant(), bpp: BiogasPowerPlant(), smallhpp: SmallHydroPowerPlant(), hpp: HydroPowerPlant(), tpp: ThermalPowerPlant(), npp: NuclearPowerPlant())
     static var previews: some View {
-        GeneratingEnergyRow()
-            .environmentObject(manager.units[1])
+        GeneratingEnergyRow(energyManager: .constant(GeneratingEnergyManager.energyManagers[1]))
     }
 }
