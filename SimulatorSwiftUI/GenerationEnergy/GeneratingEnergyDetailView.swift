@@ -32,25 +32,39 @@ struct GeneratingEnergyDetailView: View {
                         }
                         manager.tappedPlus(unit: manager)
                     }
+                    .onLongPressGesture(minimumDuration: 2) {
+                        manager.autoAdding = manager.autoAdding ? false : canTappedPlus
+                    }
+
                 Text("\(manager.energyModel.title) - \(manager.energyModel.price.scale)$")
                     .font(.system(size: 14))
                 Text(manager.energyModel.description)
                     .font(.system(size: 12))
-                Button {
-                    guard canTappedPlus else {
-                        showingAlert = true
-                        return
+                HStack {
+                    Button {
+                        guard canTappedPlus else {
+                            showingAlert = true
+                            return
+                        }
+                        manager.autoAdding = false
+                        manager.tappedPlus(unit: manager)
+                    } label: {
+                        Label("Add SES", systemImage: "plus")
+                            .labelStyle(.iconOnly)
+                            .frame(width: 50, height: 30)
+                            .background(canTappedPlus ? manager.energyModel.color : .gray)
+                            .cornerRadius(12)
                     }
-                    manager.tappedPlus(unit: manager)
-                } label: {
-                    Label("Add SES", systemImage: "plus")
-                        .labelStyle(.iconOnly)
-                        .frame(width: 50, height: 30)
-                        .background(canTappedPlus ? .green : .gray)
-                        .cornerRadius(12)
-                }
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text(manager.errorMessage), dismissButton: .default(Text("Dismiss")))
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text(manager.errorMessage), dismissButton: .default(Text("Dismiss")))
+                    }
+                    
+                    if manager.autoAdding {
+                        Image(systemName: "goforward")
+                            .frame(width: 30, height: 30)
+                            .background(manager.energyModel.color)
+                            .cornerRadius(10)
+                    }
                 }
                 VStack(spacing: 10) {
                     HStack {

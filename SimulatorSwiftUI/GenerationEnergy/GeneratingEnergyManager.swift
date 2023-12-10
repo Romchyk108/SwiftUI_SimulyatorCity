@@ -11,24 +11,28 @@ protocol CreatorTimeLine {
     func createTimeLine(time: Double) -> String
 }
 
-class GeneratingEnergyManager {
+class GeneratingEnergyManager: ObservableObject {
     static var energyManagers = [
         GeneratingEnergyManager(model: GeneratingEnergyModel(id: 0, title: localizedString("SES on the roof of house"), image: "solarPanelOnTheRoof", color: .green, price: 5000, timeForBuilding: 18, powerPerUnit: 5.0, workerPerUnit: 0.35, description: localizedString("Description ses roof"), dependentOnWeather: true)),
         GeneratingEnergyManager(model: GeneratingEnergyModel(id: 1, title: localizedString("SES on the Ground"), image: "solarPanelOnGround", color: .init(red: 0, green: 245, blue: 0), price: 10000, timeForBuilding: 40, powerPerUnit: 10.0, workerPerUnit: 0.2, description: localizedString("Description ses on the ground"), dependentOnWeather: true)),
         GeneratingEnergyManager(model: GeneratingEnergyModel(id: 2, title: localizedString("Wind Power Plant"), image: "windEnergy", color: .cyan , price: 25000, timeForBuilding: 30, powerPerUnit: 20.0, workerPerUnit: 0.4, description: localizedString("Description wind power plant"), dependentOnWeather: true)),
         GeneratingEnergyManager(model: GeneratingEnergyModel(id: 3, title: localizedString("Biogas Power Plant"), image: "biogas", color: .yellow, price: 50000, timeForBuilding: 14, powerPerUnit: 25.0, workerPerUnit: 5, description: localizedString("Description biogas power plant"))),
         GeneratingEnergyManager(model: GeneratingEnergyModel(id: 4, title: localizedString("Small HES"), image: "smallHydro", color: .mint, price: 150000, timeForBuilding: 44, powerPerUnit: 100.0, workerPerUnit: 15, description: localizedString("Description small Hydro power plant"))),
-        GeneratingEnergyManager(model: GeneratingEnergyModel(id: 5, title: localizedString("HES"), image: "ГЕС", color: .blue, price: 125000, timeForBuilding: 250 * 24, powerPerUnit: 2500.0, workerPerUnit: 70, description: localizedString("Description Hydro power plant"))),
-        GeneratingEnergyManager(model: GeneratingEnergyModel(id: 6, title: localizedString("TPP"), image: "ТЕС", color: .indigo, price: 25000, timeForBuilding: 200 * 24, powerPerUnit: 3500.0, workerPerUnit: 120, description: localizedString("Description Thermal power plant"))),
-        GeneratingEnergyManager(model: GeneratingEnergyModel(id: 7, title: localizedString("NPP"), image: "АЕС", color: .red, price: 95000000, timeForBuilding: 500 * 24, powerPerUnit: 10000.0, workerPerUnit: 530, description: localizedString("Description Nuclear power plant")))
+        GeneratingEnergyManager(model: GeneratingEnergyModel(id: 5, title: localizedString("HES"), image: "ГЕС", color: .blue, price: 125000, timeForBuilding: 250, powerPerUnit: 2500.0, workerPerUnit: 70, description: localizedString("Description Hydro power plant"))),
+        GeneratingEnergyManager(model: GeneratingEnergyModel(id: 6, title: localizedString("TPP"), image: "ТЕС", color: .indigo, price: 25000, timeForBuilding: 200, powerPerUnit: 3500.0, workerPerUnit: 120, description: localizedString("Description Thermal power plant"))),
+        GeneratingEnergyManager(model: GeneratingEnergyModel(id: 7, title: localizedString("NPP"), image: "АЕС", color: .red, price: 95000, timeForBuilding: 50, powerPerUnit: 100000.0, workerPerUnit: 530, description: localizedString("Description Nuclear power plant")))
     ]
     
-    var energyModel: GeneratingEnergyModel
-    var count: Int = 0
-    var numberForBuild: Int = 0
-    var finishTime = [Double]()
-    var totalPower: Double = 0.0
-    var totalWorkers: Int = 0
+    let energyModel: GeneratingEnergyModel
+    @Published var count: Int = 0
+    @Published var numberForBuild: Int = 0
+    @Published var finishTime = [Double]()
+    @Published var totalPower: Double = 0.0
+    @Published var totalWorkers: Int = 0
+    
+    var buildingTeam = 1
+    var errorMessage: String = ""
+    var autoAdding: Bool = false
     
     var coefficientDependentWeather: Double = 1.0 {
         didSet {
@@ -37,32 +41,8 @@ class GeneratingEnergyManager {
         }
     }
     
-    var buildingTeam = 1
-    typealias queueCell = (Int, Double)
-    var queueBuild: [queueCell] = []
-    var errorMessage: String = ""
-    
     init(model: GeneratingEnergyModel) {
         self.energyModel = model
-    }
-    
-    func addForBuild(finishTime: Double) {
-        self.numberForBuild += 1
-        self.finishTime.append(finishTime)
-    }
-    
-    func finishBuild() {
-        self.numberForBuild -= 1
-        self.finishTime.removeFirst()
-        self.count += 1
-        if !energyModel.dependentOnWeather {
-            self.totalPower = Double(count) * energyModel.powerPerUnit * coefficientDependentWeather
-            self.totalWorkers = Int((Double(count) * energyModel.workerPerUnit).rounded(.up))
-        }
-    }
-    
-    func predictFinishBuild(since: Double) -> Double {
-        return since + energyModel.timeForBuilding * 3600
     }
     
     func getProgressValue(for unit: GeneratingEnergyManager) -> Double {
@@ -86,25 +66,36 @@ class GeneratingEnergyManager {
     }
     
     func tappedPlus(unit: GeneratingEnergyManager) {
-        let nextTimeForBuild = queueBuild.last(where: { $0.0 == unit.energyModel.id })?.1
+        let nextTimeForBuild = finishTime.last
         Money.shared.money -= unit.energyModel.price
-        let finishTime = unit.predictFinishBuild(since: nextTimeForBuild ?? DashboardManager.currentTime)
-        unit.addForBuild(finishTime: finishTime)
-        self.queueBuild.append(queueCell(unit.energyModel.id, unit.finishTime.last ?? 0.0))
+        numberForBuild += 1
+        unit.predictFinishBuild(since: nextTimeForBuild ?? DashboardManager.currentTime)
     }
     
     func checkTime() {
-        let time = DashboardManager.currentTime
-        if !queueBuild.filter({ $0.1 <= time }).isEmpty {
-            queueBuild.filter({ $0.1 <= time }).forEach {
-                Self.energyManagers[$0.0].finishBuild()
-                HouseManager.addSES()
-            }
-            queueBuild.removeAll(where: { $0.1 <= time })
+        finishBuild()
+        if autoAdding, canTappedPlus(self), finishTime.isEmpty {
+            tappedPlus(unit: self)
         }
     }
     
-    class func calculateEnergy(weather: DashboardManager.Weather) -> Double {
+    private func predictFinishBuild(since: Double) {
+        finishTime.append(since + energyModel.timeForBuilding * 3600)
+    }
+    
+    private func finishBuild() {
+        if let currentFinishTime = finishTime.first, currentFinishTime <= DashboardManager.currentTime {
+            self.numberForBuild -= 1
+            self.finishTime.removeFirst()
+            self.count += 1
+        }
+        if !energyModel.dependentOnWeather {
+            self.totalPower = Double(count) * energyModel.powerPerUnit * coefficientDependentWeather
+            self.totalWorkers = Int((Double(count) * energyModel.workerPerUnit).rounded(.up))
+        }
+    }
+    
+    static func calculateEnergy(weather: DashboardManager.Weather) -> Double {
         let dependentOnWeatherSourceEnergy = Self.energyManagers.filter({ $0.energyModel.dependentOnWeather })
         guard !dependentOnWeatherSourceEnergy.isEmpty else { return 0.0}
         switch weather {

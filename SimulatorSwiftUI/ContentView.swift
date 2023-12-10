@@ -22,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         ScrollViewReader { proxy in
             VStack(spacing: 0) {
-                DashboardView(board: $dashboardManager.dashboard)
+                DashboardView()//board: $dashboardManager.dashboard)
                     .environmentObject(dashboardManager)
                 
                 NavigationStack {
@@ -31,6 +31,7 @@ struct ContentView: View {
                             switch row.id {
                             case 0:
                                 GeneratingEnergyList(managers: $dashboardManager.energySources)
+                                    .environmentObject(dashboardManager)
                             case 1:
                                 HousesList(houseManagers: $dashboardManager.houses)
                             case 2:

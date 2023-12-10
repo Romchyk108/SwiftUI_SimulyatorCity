@@ -12,11 +12,19 @@ struct GeneratingEnergyRow: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            Image(energyManager.energyModel.image)
-                .resizable()
-                .frame(width: 150, height: 150)
-                .aspectRatio(contentMode: .fill)
-                .clipShape(Circle())
+            ZStack {
+                Image(energyManager.energyModel.image)
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(Circle())
+                if energyManager.autoAdding {
+                    Image(systemName: "goforward")
+                        .frame(width: 50, height: 50)
+                        .font(.largeTitle)
+                        .foregroundColor(energyManager.energyModel.color)
+                }
+            }
             VStack(spacing: 10) {
                 Text(energyManager.energyModel.title)
                     .font(.system(size: 14))
@@ -26,17 +34,17 @@ struct GeneratingEnergyRow: View {
                     .background(energyManager.energyModel.color)
                     .cornerRadius(10)
                 HStack(spacing: 10) {
-                        Image(systemName: "bolt")
-                            .foregroundColor(.green)
-                        Text("\(energyManager.totalPower.scalePower)")
-                            .font(.system(size: 14))
+                    Image(systemName: "bolt")
+                        .foregroundColor(.green)
+                    Text("\(energyManager.totalPower.scalePower)")
+                        .font(.system(size: 14))
                 }
                 .multilineTextAlignment(.center)
                 HStack(spacing: 10) {
-                        Image(systemName: "person.2.badge.gearshape")
-                            .foregroundColor(.blue)
-                        Text("\(energyManager.totalWorkers)")
-                            .font(.system(size: 14))
+                    Image(systemName: "person.2.badge.gearshape")
+                        .foregroundColor(.blue)
+                    Text("\(energyManager.totalWorkers)")
+                        .font(.system(size: 14))
                 }
                 .multilineTextAlignment(.center)
             }
