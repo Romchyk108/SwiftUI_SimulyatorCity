@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @EnvironmentObject var manager: DashboardManager
+    @ObservedObject var manager: DashboardManager
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 10) {
@@ -78,8 +79,7 @@ struct DashboardView: View {
 struct DashboardView_Previews: PreviewProvider {
     static let dashboardManager = DashboardModel().dashboardManager
     static var previews: some View {
-        DashboardView()
-            .environmentObject(dashboardManager)
+        DashboardView(manager: dashboardManager)
     }
 }
 

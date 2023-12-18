@@ -8,20 +8,17 @@
 import SwiftUI
 
 struct GeneratingEnergyDetailView: View {
-    @Binding var manager: GeneratingEnergyManager
+    @ObservedObject var unit: GeneratingEnergyUnit
     @State private var showingAlert = false
     
-    private var process: Double {
-        manager.getProgressValue(for: manager)
-    }
     private var canTappedPlus: Bool {
-        manager.canTappedPlus(manager)
+        unit.canTappedPlus()
     }
     
     var body: some View {
         ScrollView {
             VStack(spacing: 10) {
-                Image(manager.energyModel.image)
+                Image(unit.image)
                     .resizable()
                     .clipShape(Circle())
                     .frame(width: 200, height: 200, alignment: .center)
@@ -30,15 +27,15 @@ struct GeneratingEnergyDetailView: View {
                             showingAlert = true
                             return
                         }
-                        manager.tappedPlus(unit: manager)
+                        unit.tappedPlus()
                     }
                     .onLongPressGesture(minimumDuration: 2) {
-                        manager.autoAdding = manager.autoAdding ? false : canTappedPlus
+                        unit.autoAdding = unit.autoAdding ? false : canTappedPlus
                     }
 
-                Text("\(manager.energyModel.title) - \(manager.energyModel.price.scale)$")
+                Text("\(unit.title) - \(unit.price.scale)$")
                     .font(.system(size: 14))
-                Text(manager.energyModel.description)
+                Text(unit.description)
                     .font(.system(size: 12))
                 HStack {
                     Button {
@@ -46,37 +43,37 @@ struct GeneratingEnergyDetailView: View {
                             showingAlert = true
                             return
                         }
-                        manager.autoAdding = false
-                        manager.tappedPlus(unit: manager)
+                        unit.autoAdding = false
+                        unit.tappedPlus()
                     } label: {
                         Label("Add SES", systemImage: "plus")
                             .labelStyle(.iconOnly)
                             .frame(width: 50, height: 30)
-                            .background(canTappedPlus ? manager.energyModel.color : .gray)
+                            .background(canTappedPlus ? unit.color : .gray)
                             .cornerRadius(12)
                     }
                     .alert(isPresented: $showingAlert) {
-                        Alert(title: Text(manager.errorMessage), dismissButton: .default(Text("Dismiss")))
+                        Alert(title: Text(unit.errorMessage), dismissButton: .default(Text("Dismiss")))
                     }
                     
-                    if manager.autoAdding {
+                    if unit.autoAdding {
                         Image(systemName: "goforward")
                             .frame(width: 30, height: 30)
-                            .background(manager.energyModel.color)
+                            .background(unit.color)
                             .cornerRadius(10)
                     }
                 }
                 VStack(spacing: 10) {
                     HStack {
-                        Text("\(manager.count.scale)")
+                        Text("\(unit.count.scale)")
                         Spacer()
-                        if manager.energyModel.id == 0, !canTappedPlus {
+                        if unit.id == 0, !canTappedPlus {
                             Text("Not enough houses")
                                 .font(.system(size: 12))
                             Spacer()
                         }
-                        if manager.numberForBuild != 0 {
-                            Text("\(manager.numberForBuild.scale)")
+                        if unit.numberForBuild != 0 {
+                            Text("\(unit.numberForBuild.scale)")
                         }
                     }
                     .padding(.horizontal)
@@ -85,13 +82,13 @@ struct GeneratingEnergyDetailView: View {
                         HStack() {
                             Image(systemName: "bolt")
                                 .foregroundColor(.green)
-                            Text("\(manager.totalPower.scalePower)")
+                            Text("\(unit.totalPower.scalePower)")
                         }
                         Spacer()
                         HStack() {
                             Image(systemName: "bolt")
                                 .foregroundColor(.green)
-                            Text("\((manager.energyModel.powerPerUnit * Double(manager.numberForBuild)).scalePower)")
+                            Text("\((unit.powerPerUnit * Double(unit.numberForBuild)).scalePower)")
                         }
                     }
                     .font(.system(size: 14))
@@ -101,28 +98,28 @@ struct GeneratingEnergyDetailView: View {
                         HStack() {
                             Image(systemName: "person.2.badge.gearshape")
                                 .foregroundColor(.blue)
-                            Text("\(manager.totalWorkers.scale)")
+                            Text("\(unit.totalWorkers.scale)")
                         }
                         Spacer()
                         HStack() {
                             Image(systemName: "person.2.badge.gearshape")
                                 .foregroundColor(.blue)
-                            Text("+ \((manager.energyModel.workerPerUnit * Double(manager.numberForBuild)).scale)")
+                            Text("+ \((unit.workerPerUnit * Double(unit.numberForBuild)).scale)")
                         }
                     }
                     .font(.system(size: 14))
                     .padding(.horizontal)
                     
                     HStack {
-                        if !manager.finishTime.isEmpty {
-                            ProgressView(value: process, label: {
-                                Text(String(format: "%2.1f", (process * 100)) + "%")
+                        if !unit.finishTime.isEmpty {
+                            ProgressView(value: unit.buildingProcess, label: {
+                                Text(String(format: "%2.1f", (unit.buildingProcess * 100)) + "%")
                             })
                         }
                         Spacer()
                         Image(systemName: "clock")
                             .foregroundColor(.blue)
-                        Text(manager.energyModel.timeForBuilding.scaleDate)
+                        Text(unit.timeForBuilding.scaleDate)
                     }
                     .padding(.horizontal)
                     .font(.system(size: 14))
@@ -130,12 +127,12 @@ struct GeneratingEnergyDetailView: View {
                 .padding(.horizontal, 5)
                 
                 VStack(spacing: 10) {
-                    if !manager.finishTime.isEmpty {
+                    if !unit.finishTime.isEmpty {
                         Image(systemName: "clock.badge.checkmark")
                             .foregroundColor(.blue)
                         VStack {
-                            ForEach(manager.finishTime, id: \.self) { date in
-                                Text("\(manager.createTimeLine(time: date))")
+                            ForEach(unit.finishTime, id: \.self) { date in
+                                Text("\(unit.createTimeLine(time: date))")
                             }
                         }
                     }
@@ -147,7 +144,8 @@ struct GeneratingEnergyDetailView: View {
 }
 
 struct GeneratingEnergyDetailView_Previews: PreviewProvider {
+    static let unit = GeneratingEnergyUnit(id: 0, title: localizedString("SES on the roof of house"), image: "solarPanelOnTheRoof", color: .green, price: 5000, timeForBuilding: 18, powerPerUnit: 5.0, workerPerUnit: 0.35, description: localizedString("Description ses roof"), dependentOnWeather: true)
     static var previews: some View {
-        GeneratingEnergyDetailView(manager: .constant(GeneratingEnergyManager.energyManagers[2]))
+        GeneratingEnergyDetailView(unit: unit)
     }
 }

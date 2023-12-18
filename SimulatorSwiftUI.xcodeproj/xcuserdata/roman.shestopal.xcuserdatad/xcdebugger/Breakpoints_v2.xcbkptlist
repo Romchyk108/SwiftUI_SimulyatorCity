@@ -14,10 +14,10 @@
             filePath = "SimulatorSwiftUI/Dashboard/DashboardManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "init()"
-            landmarkType = "7">
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "isStarted"
+            landmarkType = "24">
             <Locations>
                <Location
                   uuid = "FE187770-DE3B-4F2C-862F-D77AC39B2E3E - 729e56544d6fc046"
@@ -239,149 +239,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C1AA2F2E-51A5-47CC-858E-AC3E5F3EBC03"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "GeneratingEnergyManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2C626A66-C4F0-45B9-ACAC-7A165DC902B1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "calculateEnergy(weather:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2C626A66-C4F0-45B9-ACAC-7A165DC902B1 - 62dcb860e9eb11e6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SimulatorSwiftUI.GeneratingEnergyManager.calculateEnergy(weather: SimulatorSwiftUI.DashboardManager.Weather) -&gt; Swift.Double"
-                  moduleName = "SimulatorSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "4712">
-               </Location>
-               <Location
-                  uuid = "2C626A66-C4F0-45B9-ACAC-7A165DC902B1 - 52f24e5dc6094842"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (SimulatorSwiftUI.GeneratingEnergyProtocol) -&gt; Swift.Double in SimulatorSwiftUI.GeneratingEnergyManager.calculateEnergy(weather: SimulatorSwiftUI.DashboardManager.Weather) -&gt; Swift.Double"
-                  moduleName = "SimulatorSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "30">
-               </Location>
-               <Location
-                  uuid = "2C626A66-C4F0-45B9-ACAC-7A165DC902B1 - 835094aecb0f71ae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "implicit closure #1 (Swift.Double, Swift.Double) -&gt; Swift.Double in SimulatorSwiftUI.GeneratingEnergyManager.calculateEnergy(weather: SimulatorSwiftUI.DashboardManager.Weather) -&gt; Swift.Double"
-                  moduleName = "SimulatorSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "38">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AE82C481-41EE-4EAA-98B6-D4A3F038C4F5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "calculateEnergy(weather:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A58F9504-B8B2-4CF9-BDF2-A06E78FBA555"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "calculateEnergy(weather:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A58F9504-B8B2-4CF9-BDF2-A06E78FBA555 - 62dcb860e9eb0ce1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SimulatorSwiftUI.GeneratingEnergyManager.calculateEnergy(weather: SimulatorSwiftUI.DashboardManager.Weather) -&gt; Swift.Double"
-                  moduleName = "SimulatorSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "356">
-               </Location>
-               <Location
-                  uuid = "A58F9504-B8B2-4CF9-BDF2-A06E78FBA555 - 62dcb860e9eb0ce1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SimulatorSwiftUI.GeneratingEnergyManager.calculateEnergy(weather: SimulatorSwiftUI.DashboardManager.Weather) -&gt; Swift.Double"
-                  moduleName = "SimulatorSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "293">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "721F9004-C1A3-4CE3-8E22-33905298E676"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -389,121 +246,10 @@
             filePath = "SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "body"
             landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "46405735-E382-4657-9B99-37EA5D5ABA3D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "checkTime(time:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "46405735-E382-4657-9B99-37EA5D5ABA3D - 348f031538379d62"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SimulatorSwiftUI.GeneratingEnergyManager.checkTime(time: Swift.Double) -&gt; ()"
-                  moduleName = "SimulatorSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "315">
-               </Location>
-               <Location
-                  uuid = "46405735-E382-4657-9B99-37EA5D5ABA3D - d798c151b45bb430"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 ((Swift.Int, Swift.Double)) -&gt; Swift.Bool in SimulatorSwiftUI.GeneratingEnergyManager.checkTime(time: Swift.Double) -&gt; ()"
-                  moduleName = "SimulatorSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "41">
-               </Location>
-               <Location
-                  uuid = "46405735-E382-4657-9B99-37EA5D5ABA3D - 26b3673002d26f3d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 ((Swift.Int, Swift.Double)) -&gt; () in SimulatorSwiftUI.GeneratingEnergyManager.checkTime(time: Swift.Double) -&gt; ()"
-                  moduleName = "SimulatorSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "57">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E164C6C7-85DA-4E04-930E-A94460E0590A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyUnit.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "coefficientDependentWeather"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "E164C6C7-85DA-4E04-930E-A94460E0590A - c203f38f793e9162"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SimulatorSwiftUI.GeneratingEnergy.coefficientDependentWeather.didset : Swift.Double"
-                  moduleName = "SimulatorSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyUnit.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "180">
-               </Location>
-               <Location
-                  uuid = "E164C6C7-85DA-4E04-930E-A94460E0590A - c203f38f793e9162"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SimulatorSwiftUI.GeneratingEnergy.coefficientDependentWeather.didset : Swift.Double"
-                  moduleName = "SimulatorSwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyUnit.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "246">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -516,9 +262,9 @@
             filePath = "SimulatorSwiftUI/Dashboard/DashboardManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "consumeEnergy"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "placesForPeople"
             landmarkType = "24">
             <Locations>
                <Location
@@ -564,9 +310,9 @@
             filePath = "SimulatorSwiftUI/Dashboard/DashboardManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "setRunner()"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "updateDashboard()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -612,10 +358,344 @@
             filePath = "SimulatorSwiftUI/Helpers/PieCharView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1466815D-DF84-418D-AD32-44460B4F9C28"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimulatorSwiftUI/Factorys/FactoryManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE61F3AA-9157-4181-BFCA-2919C84E190A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimulatorSwiftUI/Houses/Housel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "calculateBuildingProcess()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AE61F3AA-9157-4181-BFCA-2919C84E190A - 7ae6775e9b4c4efd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimulatorSwiftUI.House.calculateBuildingProcess() -&gt; ()"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Houses/Housel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  uuid = "AE61F3AA-9157-4181-BFCA-2919C84E190A - 7ae6775e9b4c4efd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimulatorSwiftUI.House.calculateBuildingProcess() -&gt; ()"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Houses/Housel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "219">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C5BBABAD-25A2-4B7D-B09F-4AEA5A65F3CE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyUnit.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "getProgressValue()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "84C33BB2-D1F1-4233-9A33-B57B367944B3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimulatorSwiftUI/GenerationEnergy/GeneratingEnergyUnit.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "finishBuild()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B4FE566-8A2B-4D1E-B785-D580A094634F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimulatorSwiftUI/Factorys/Factory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "finishBuild()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0B4FE566-8A2B-4D1E-B785-D580A094634F - f9ce3cb267e7dc0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimulatorSwiftUI.Factory.finishBuild() -&gt; ()"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Factorys/Factory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "0B4FE566-8A2B-4D1E-B785-D580A094634F - f9ce3cb267e7dc0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimulatorSwiftUI.Factory.finishBuild() -&gt; ()"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Factorys/Factory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "170179CF-6553-4E79-B5B2-FBF7637B6CA4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimulatorSwiftUI/Factorys/Factory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "addShift()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51438079-CA21-4AFB-BD3E-BBB7A29FA4B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimulatorSwiftUI/Factorys/Factory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "removeShift()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "51438079-CA21-4AFB-BD3E-BBB7A29FA4B0 - 581f7c508f10b4cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimulatorSwiftUI.Factory.removeShift() -&gt; ()"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Factorys/Factory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "51438079-CA21-4AFB-BD3E-BBB7A29FA4B0 - 581f7c508f10b4cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimulatorSwiftUI.Factory.removeShift() -&gt; ()"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Factorys/Factory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "394">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0E1D45C4-A623-480C-8393-FEED3889BE1D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimulatorSwiftUI/Factorys/Factory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "isWorkingHour"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "0E1D45C4-A623-480C-8393-FEED3889BE1D - e3f69e98528340af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimulatorSwiftUI.Factory.isWorkingHour.getter : Swift.Bool"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Factorys/Factory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  uuid = "0E1D45C4-A623-480C-8393-FEED3889BE1D - e3f69e98528340af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimulatorSwiftUI.Factory.isWorkingHour.getter : Swift.Bool"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Factorys/Factory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "195">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D81E4FB4-2FED-4438-8793-FCCDB85D27E7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimulatorSwiftUI/Factorys/Factory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "getWorkingHours()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D81E4FB4-2FED-4438-8793-FCCDB85D27E7 - eb7debac68ce4a65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SimulatorSwiftUI.Shift) -&gt; () in SimulatorSwiftUI.Factory.getWorkingHours() -&gt; ()"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Factorys/Factory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "517">
+               </Location>
+               <Location
+                  uuid = "D81E4FB4-2FED-4438-8793-FCCDB85D27E7 - eb7debac68ce4a65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SimulatorSwiftUI.Shift) -&gt; () in SimulatorSwiftUI.Factory.getWorkingHours() -&gt; ()"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Factorys/Factory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  uuid = "D81E4FB4-2FED-4438-8793-FCCDB85D27E7 - c5cccc5851bf6b90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; Swift.Int in closure #1 (SimulatorSwiftUI.Shift) -&gt; () in SimulatorSwiftUI.Factory.getWorkingHours() -&gt; ()"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Factorys/Factory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  uuid = "D81E4FB4-2FED-4438-8793-FCCDB85D27E7 - c5cccc5851bf6b90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; Swift.Int in closure #1 (SimulatorSwiftUI.Shift) -&gt; () in SimulatorSwiftUI.Factory.getWorkingHours() -&gt; ()"
+                  moduleName = "SimulatorSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roman.shestopal/Swift%20Projects/SwiftUI/SimulatorSwiftUI/SimulatorSwiftUI/Factorys/Factory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "55">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

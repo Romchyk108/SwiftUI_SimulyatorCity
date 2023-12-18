@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "biogas.jpeg",
+      "filename" : "solarPanelOnGround 2.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "solarPanelOnGround 1.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "solarPanelOnGround.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }

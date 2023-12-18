@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct HousesList: View {
-    @Binding var houseManagers: [HouseManager]
+    @ObservedObject var houseModel: HouseModel
     
     var body: some View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(houseManagers.indices, id: \.self) { index in
+                    ForEach(houseModel.houses.indices, id: \.self) { index in
                         NavigationLink {
-                            HouseDetailView(houseManager: $houseManagers[index])
+                            HouseDetailView(house: houseModel.houses[index])
                         } label: {
-                            HouseRow(manager: $houseManagers[index])
+                            HouseRow(house: houseModel.houses[index])
                         }
                     }
                 }
@@ -26,12 +26,5 @@ struct HousesList: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Houses")
-    }
-}
-
-struct HousesList_Previews: PreviewProvider {
-    static var previews: some View {
-        HousesList(houseManagers: .constant(HouseManager.houseManagers))
-//            .environmentObject(manager)
     }
 }

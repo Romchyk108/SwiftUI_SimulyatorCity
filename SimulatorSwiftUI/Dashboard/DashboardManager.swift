@@ -28,8 +28,12 @@ class DashboardManager: ObservableObject {
     
     @Published var dashboard: Dashboard
     
-    var energySources = GeneratingEnergyManager.energyManagers
-    var houses = HouseManager.houseManagers
+    var energyManager = GeneratingEnergyManager()
+    var houseModel = HouseModel()
+    
+    var bakery = Factory(id: 0, title: "Bakery", iconName: "bakery", color: .cyan, price: 100000, factoryConsumeEnergy: 250, workersForShift: 20, profit: 30, timeForBuild: 15)
+    var milkFactory = Factory(id: 1, title: "Mick factory", iconName: "milkFactory", color: .teal, price: 75000, factoryConsumeEnergy: 100, workersForShift: 35, profit: 50, timeForBuild: 13)
+    var factories = [Factory]()
     
     private var year: Int = 0
     private var month: Int = 0
@@ -37,11 +41,16 @@ class DashboardManager: ObservableObject {
     private var hour: Int = 0
     
     var weather: Weather = .cloudy
-    var workers: Int { self.energySources.map{ $0.totalWorkers }.reduce(0, +) }
-    var people: Int { Int(round(Double(workers) * 2.5)) }
+    var workers: Int {
+        self.energyManager.energyUnits.map{ $0.totalWorkers }.reduce(0, +)
+        + factories.reduce(0, { $0 + $1.totalWorkers })
+    }
+    var people: Int {
+        Int(round(Double(workers) * 2.5))
+    }
     var placesForPeople: Int {
-        houses.reduce(0, { partialResult, houseManager in
-            partialResult + (houseManager.house.numberCanLiveHere * houseManager.count)
+        houseModel.houses.reduce(0, { partialResult, house in
+            partialResult + (house.numberCanLiveHere * house.count)
         })
     }
     var consumeEnergy: Double {
@@ -58,13 +67,14 @@ class DashboardManager: ObservableObject {
         default:
             coefficient = Double(Array(30...55).randomElement() ?? 35) / 100.0
         }
-        return houses.reduce(0, { $0 + $1.consumeElectricity }) * coefficient
+        return houseModel.houses.reduce(0, { $0 + $1.consumeElectricity }) * coefficient +
+        factories.reduce(0, { $0 + $1.totalConsumeEnergy })
     }
     
     var profit: Double {
         let sellElectricity: Bool = UserDefaults.standard.bool(forKey: "sellElectricity")
         let differencesElectricity = sellElectricity ? dashboard.generatedEnergy - (dashboard.consumeEnergy * 0.95) : 0.0
-        let profit = differencesElectricity * 0.04
+        let profit = differencesElectricity * 0.04 + factories.reduce(0, { $0 + $1.totalProfit})
         return profit
     }
     
@@ -81,8 +91,11 @@ class DashboardManager: ObservableObject {
     init() {
         self.dashboard = Dashboard(money: 0, workers: 0, people: 0, placesForPeople: 0, date: "", weather: "", energyPrice: 0.0, generatedEnergy: 0.0, consumeEnergy: 0.0, state: .pause)
         self.dashboard = createDashboard()
+        self.factories = [bakery, milkFactory]
+        self.factories.forEach({ $0.timeDelegate = self })
         
         setRunner()
+        energyManager.energyUnits.first(where: { $0.id == 0 })?.delegate = houseModel
     }
     
     func setStateButtons() {
@@ -105,24 +118,25 @@ class DashboardManager: ObservableObject {
         self.weather = setWeather(hour: hour)
         dashboard.money = Money.shared.money
         dashboard.weather = weather.rawValue
-        dashboard.generatedEnergy = GeneratingEnergyManager.calculateEnergy(weather: weather)
+        dashboard.generatedEnergy = energyManager.calculateEnergy(weather: weather)
         dashboard.workers = self.workers
         dashboard.people = self.people
         dashboard.placesForPeople = self.placesForPeople
         dashboard.consumeEnergy = self.consumeEnergy
-        energySources.forEach({ $0.checkTime()})
-        houses.forEach({ $0.checkTime() })
+        energyManager.energyUnits.forEach({ $0.checkTime()})
+        houseModel.houses.forEach({ $0.checkTime() })
         setUpPeopleInTheirHouse()
+        factories.forEach({ $0.checkTime() })
         Money.addProfit(self.profit)
     }
     
     func setUpPeopleInTheirHouse() {
-        let places = houses.reduce(0) { partialResult, houseManager in
+        let places = houseModel.houses.reduce(0) { partialResult, houseManager in
             partialResult + (houseManager.numberWhoLiveHere)
         }
         guard people != places else { return }
         var peopleWithoutHouse = people - places
-        for house in houses {
+        for house in houseModel.houses {
             peopleWithoutHouse = house.setUpPeopleInTheirHouse(people: &peopleWithoutHouse)
         }
     }
@@ -167,7 +181,13 @@ class DashboardManager: ObservableObject {
     }
     
     private func createDashboard() -> Dashboard {
-        let dashboard = Dashboard(money: Money.shared.money, workers: self.workers, people: self.people, placesForPeople: placesForPeople, date: "\(year).\(month).\(day) - \(hour)", weather: weather.rawValue, energyPrice: 0.1, generatedEnergy: GeneratingEnergyManager.calculateEnergy(weather: self.weather), consumeEnergy: self.consumeEnergy, state: .pause)
+        let dashboard = Dashboard(money: Money.shared.money, workers: self.workers, people: self.people, placesForPeople: placesForPeople, date: "\(year).\(month).\(day) - \(hour)", weather: weather.rawValue, energyPrice: 0.1, generatedEnergy: self.energyManager.calculateEnergy(weather: self.weather), consumeEnergy: self.consumeEnergy, state: .pause)
         return dashboard
+    }
+}
+
+extension DashboardManager: TakeTimeDelegate {
+    func takeCurrentHour() -> Int {
+        hour
     }
 }

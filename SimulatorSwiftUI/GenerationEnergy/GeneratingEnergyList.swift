@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct GeneratingEnergyList: View {
-    @Binding var managers: [GeneratingEnergyManager]
+    @ObservedObject var manager: GeneratingEnergyManager
     
     var body: some View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(managers.indices, id: \.self) { index in
+                    ForEach(manager.energyUnits, id: \.id) { unit in
                         NavigationLink {
-                            GeneratingEnergyDetailView(manager: $managers[index])
+                            GeneratingEnergyDetailView(unit: unit)
                         } label: {
-                            GeneratingEnergyRow(energyManager: $managers[index])
+                            GeneratingEnergyRow(unit: unit)
                         }
                     }
-                    PieChartView(energyManagers: $managers)
+                    PieCharView(energyManager: manager)
                         .frame(width: 300, height: 300)
                 }
             }
@@ -39,6 +39,6 @@ struct GeneratingEnergyList: View {
 
 struct GeneratingEnergyView_Previews: PreviewProvider {
     static var previews: some View {
-        GeneratingEnergyList(managers: .constant(GeneratingEnergyManager.energyManagers))
+        GeneratingEnergyList(manager: GeneratingEnergyManager())
     }
 }

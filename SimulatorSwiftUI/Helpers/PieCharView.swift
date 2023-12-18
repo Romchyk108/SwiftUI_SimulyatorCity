@@ -7,19 +7,21 @@
 
 import SwiftUI
 
-struct PieChartView: View {
-    @Binding var energyManagers: [GeneratingEnergyManager]
-    @State var slicesModel = PieSliceDataModel()
+struct PieCharView: View {
+    @ObservedObject var energyManager: GeneratingEnergyManager
+    var slicesModel: PieSliceDataModel {
+        PieSliceDataModel(manager: energyManager)
+    }
     
     var colors: [Color] {
-        energyManagers.map{ $0.energyModel.color }
+        energyManager.energyUnits.map{ $0.color }
     }
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 ForEach(slicesModel.slices.indices) { index in
-                    PieSliceView(pieSlice: $slicesModel.slices[index])
+                    PieSliceView(pieSlice: slicesModel.slices[index])
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 Circle()
@@ -37,21 +39,23 @@ struct PieChartView: View {
     }
 }
 
-struct PieSliceDataModel {
-    var slices: [PieSliceData] = []
-    let sum: Double
+class PieSliceDataModel: ObservableObject {
+    var manager: GeneratingEnergyManager
+    @Published var slices: [PieSliceData] = []
+    @Published var sum: Double
     
-    init() {
-        self.sum = GeneratingEnergyManager.energyManagers.map{ $0.energyModel.powerPerUnit * Double($0.count) * $0.coefficientDependentWeather }.reduce(0, +)
+    init(manager: GeneratingEnergyManager) {
+        self.manager = manager
+        self.sum = manager.energyUnits.map{ $0.powerPerUnit * Double($0.count) * $0.coefficientDependentWeather }.reduce(0, +)
         var endDeg: Double = 0
         
-        for energyManager in GeneratingEnergyManager.energyManagers {
-            let degrees: Double = energyManager.totalPower * 360 / sum
-            slices.append(PieSliceData(id: energyManager.energyModel.id,
+        for unit in manager.energyUnits {
+            let degrees: Double = unit.totalPower * 360 / sum
+            slices.append(PieSliceData(id: unit.id,
                                        startAngle: Angle(degrees: endDeg),
                                        endAngle: Angle(degrees: endDeg + degrees),
-                                       unit: energyManager,
-                                       value: energyManager.totalPower * 100 / sum))
+                                       unit: unit,
+                                       value: unit.totalPower * 100 / sum))
             endDeg += degrees
         }
     }
@@ -60,6 +64,6 @@ struct PieSliceDataModel {
 
 struct PieChartView_Previews: PreviewProvider {
     static var previews: some View {
-        PieChartView(energyManagers: .constant(GeneratingEnergyManager.energyManagers))
+        PieCharView(energyManager: GeneratingEnergyManager())
     }
 }

@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8D4668B72A6407F7009F52D8 /* HousesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668B62A6407F7009F52D8 /* HousesList.swift */; };
-		8D4668BA2A64082C009F52D8 /* HouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668B92A64082C009F52D8 /* HouseModel.swift */; };
-		8D4668BC2A642FAE009F52D8 /* HouseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668BB2A642FAE009F52D8 /* HouseManager.swift */; };
+		8D4668BA2A64082C009F52D8 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668B92A64082C009F52D8 /* House.swift */; };
+		8D4668BC2A642FAE009F52D8 /* HouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668BB2A642FAE009F52D8 /* HouseModel.swift */; };
 		8D4668BE2A6432BF009F52D8 /* HouseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668BD2A6432BF009F52D8 /* HouseRow.swift */; };
 		8D4668C02A643420009F52D8 /* HouseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4668BF2A643420009F52D8 /* HouseDetailView.swift */; };
 		8D532C092A4B5FE700F66DAB /* GeneratingEnergyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C082A4B5FE700F66DAB /* GeneratingEnergyList.swift */; };
@@ -20,6 +20,10 @@
 		8D532C142A4D42AD00F66DAB /* GeneratingEnergyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C132A4D42AD00F66DAB /* GeneratingEnergyManager.swift */; };
 		8D532C6F2A5095B400F66DAB /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C6E2A5095B400F66DAB /* PieSliceView.swift */; };
 		8D532C712A50B38800F66DAB /* PieCharView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D532C702A50B38800F66DAB /* PieCharView.swift */; };
+		8D6572D72B29FAB8003BD7F2 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6572D62B29FAB8003BD7F2 /* Factory.swift */; };
+		8D6572D92B29FE38003BD7F2 /* FactoryViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6572D82B29FE38003BD7F2 /* FactoryViewRow.swift */; };
+		8D6572DB2B2A4674003BD7F2 /* FactoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6572DA2B2A4674003BD7F2 /* FactoryList.swift */; };
+		8D6572DD2B2A48D0003BD7F2 /* FactoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6572DC2B2A48D0003BD7F2 /* FactoryDetailView.swift */; };
 		8D6DC4B02A64799000D30F44 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6DC4AF2A64799000D30F44 /* Money.swift */; };
 		8D73CC9C2AA61A1E007B4DB9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D73CC9E2AA61A1E007B4DB9 /* Localizable.strings */; };
 		8D8DB7FD2B236F0F00FAC088 /* EngineeringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DB7FC2B236F0F00FAC088 /* EngineeringManager.swift */; };
@@ -44,8 +48,8 @@
 
 /* Begin PBXFileReference section */
 		8D4668B62A6407F7009F52D8 /* HousesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesList.swift; sourceTree = "<group>"; };
-		8D4668B92A64082C009F52D8 /* HouseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseModel.swift; sourceTree = "<group>"; };
-		8D4668BB2A642FAE009F52D8 /* HouseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseManager.swift; sourceTree = "<group>"; };
+		8D4668B92A64082C009F52D8 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		8D4668BB2A642FAE009F52D8 /* HouseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseModel.swift; sourceTree = "<group>"; };
 		8D4668BD2A6432BF009F52D8 /* HouseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseRow.swift; sourceTree = "<group>"; };
 		8D4668BF2A643420009F52D8 /* HouseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailView.swift; sourceTree = "<group>"; };
 		8D532C082A4B5FE700F66DAB /* GeneratingEnergyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingEnergyList.swift; sourceTree = "<group>"; };
@@ -56,6 +60,10 @@
 		8D532C132A4D42AD00F66DAB /* GeneratingEnergyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingEnergyManager.swift; sourceTree = "<group>"; };
 		8D532C6E2A5095B400F66DAB /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
 		8D532C702A50B38800F66DAB /* PieCharView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieCharView.swift; sourceTree = "<group>"; };
+		8D6572D62B29FAB8003BD7F2 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		8D6572D82B29FE38003BD7F2 /* FactoryViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryViewRow.swift; sourceTree = "<group>"; };
+		8D6572DA2B2A4674003BD7F2 /* FactoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryList.swift; sourceTree = "<group>"; };
+		8D6572DC2B2A48D0003BD7F2 /* FactoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryDetailView.swift; sourceTree = "<group>"; };
 		8D6DC4AF2A64799000D30F44 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		8D73CC9D2AA61A1E007B4DB9 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D73CC9F2AA61A20007B4DB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -95,11 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				8D4668BF2A643420009F52D8 /* HouseDetailView.swift */,
-				8DB2A6DD2B1CA00F00E56249 /* Stars.swift */,
 				8D4668BD2A6432BF009F52D8 /* HouseRow.swift */,
 				8D4668B62A6407F7009F52D8 /* HousesList.swift */,
-				8D4668B92A64082C009F52D8 /* HouseModel.swift */,
-				8D4668BB2A642FAE009F52D8 /* HouseManager.swift */,
+				8D4668B92A64082C009F52D8 /* House.swift */,
+				8D4668BB2A642FAE009F52D8 /* HouseModel.swift */,
 			);
 			path = Houses;
 			sourceTree = "<group>";
@@ -114,6 +121,17 @@
 				8D532C0A2A4B621900F66DAB /* GeneratingEnergyUnit.swift */,
 			);
 			path = GenerationEnergy;
+			sourceTree = "<group>";
+		};
+		8D6572D32B29EC65003BD7F2 /* Factorys */ = {
+			isa = PBXGroup;
+			children = (
+				8D6572D62B29FAB8003BD7F2 /* Factory.swift */,
+				8D6572D82B29FE38003BD7F2 /* FactoryViewRow.swift */,
+				8D6572DA2B2A4674003BD7F2 /* FactoryList.swift */,
+				8D6572DC2B2A48D0003BD7F2 /* FactoryDetailView.swift */,
+			);
+			path = Factorys;
 			sourceTree = "<group>";
 		};
 		8DC52B632B23233C00D0B5AE /* Engineering */ = {
@@ -147,6 +165,7 @@
 				8DFF7BAB2A48900D00E44077 /* SimulatorSwiftUIApp.swift */,
 				8DFF7BAD2A48900D00E44077 /* ContentView.swift */,
 				8DDB50C12B1A59F3005D8A11 /* ConstructionTeam.swift */,
+				8D6572D32B29EC65003BD7F2 /* Factorys */,
 				8D4668B82A64080B009F52D8 /* Houses */,
 				8D532C0E2A4C6ED900F66DAB /* GenerationEnergy */,
 				8DFF7BF92A4ABED000E44077 /* MainRow */,
@@ -185,6 +204,7 @@
 		8DFF7BC72A48A84100E44077 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8DB2A6DD2B1CA00F00E56249 /* Stars.swift */,
 				8D532C112A4CB66B00F66DAB /* FinishedMark.swift */,
 				8DFF7BC82A48A86E00E44077 /* Extensions.swift */,
 				8DFF7BC02A48970B00E44077 /* PlayButton.swift */,
@@ -277,7 +297,9 @@
 			files = (
 				8D532C122A4CB66B00F66DAB /* FinishedMark.swift in Sources */,
 				8DFF7BCB2A48C56800E44077 /* DashboardModel.swift in Sources */,
+				8D6572D72B29FAB8003BD7F2 /* Factory.swift in Sources */,
 				8DFF7BFB2A4ABF0300E44077 /* MainRow.swift in Sources */,
+				8D6572D92B29FE38003BD7F2 /* FactoryViewRow.swift in Sources */,
 				8D532C0D2A4C3B0D00F66DAB /* GeneratingEnergyRow.swift in Sources */,
 				8DFF7BC32A48A08000E44077 /* Dashboard.swift in Sources */,
 				8D4668BE2A6432BF009F52D8 /* HouseRow.swift in Sources */,
@@ -296,15 +318,17 @@
 				8D532C092A4B5FE700F66DAB /* GeneratingEnergyList.swift in Sources */,
 				8DFF7BBF2A48916700E44077 /* DashboardView.swift in Sources */,
 				8D6DC4B02A64799000D30F44 /* Money.swift in Sources */,
+				8D6572DD2B2A48D0003BD7F2 /* FactoryDetailView.swift in Sources */,
 				8DFF7BAE2A48900D00E44077 /* ContentView.swift in Sources */,
-				8D4668BA2A64082C009F52D8 /* HouseModel.swift in Sources */,
+				8D4668BA2A64082C009F52D8 /* House.swift in Sources */,
 				8D532C6F2A5095B400F66DAB /* PieSliceView.swift in Sources */,
 				8DFF7BAC2A48900D00E44077 /* SimulatorSwiftUIApp.swift in Sources */,
 				8D4668C02A643420009F52D8 /* HouseDetailView.swift in Sources */,
-				8D4668BC2A642FAE009F52D8 /* HouseManager.swift in Sources */,
+				8D4668BC2A642FAE009F52D8 /* HouseModel.swift in Sources */,
 				8D532C102A4C7DE700F66DAB /* GeneratingEnergyDetailView.swift in Sources */,
 				8D4668B72A6407F7009F52D8 /* HousesList.swift in Sources */,
 				8DFF7BF82A4ABC6500E44077 /* MainRowView.swift in Sources */,
+				8D6572DB2B2A4674003BD7F2 /* FactoryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

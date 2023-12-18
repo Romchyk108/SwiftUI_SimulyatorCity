@@ -10,7 +10,8 @@ import CoreData
 
 var mainRows: [MainRow] = [MainRow(id: 0, title: "Generating Energy", image: "generateEnergy", description: "Some description1"),
                            MainRow(id: 1, title: "Hauses", image: "mainRowHause", description: "Some description2"),
-                           MainRow(id: 2, title: "Engineering", image: "engineering", description: "Some description3")]
+                           MainRow(id: 2, title: "Engineering", image: "engineering", description: "Some description3"),
+                           MainRow(id: 3, title: "Factories", image: "foodFactories", description: "factories")]
 
 func localizedString(_ text: String) -> String {
     NSLocalizedString(text, comment: "")
@@ -22,22 +23,24 @@ struct ContentView: View {
     var body: some View {
         ScrollViewReader { proxy in
             VStack(spacing: 0) {
-                DashboardView()//board: $dashboardManager.dashboard)
-                    .environmentObject(dashboardManager)
+                DashboardView(manager: dashboardManager)
                 
                 NavigationStack {
                     List(mainRows) { row in
                         NavigationLink {
                             switch row.id {
                             case 0:
-                                GeneratingEnergyList(managers: $dashboardManager.energySources)
-                                    .environmentObject(dashboardManager)
+                                GeneratingEnergyList(manager: dashboardManager.energyManager)
                             case 1:
-                                HousesList(houseManagers: $dashboardManager.houses)
+                                HousesList(houseModel: dashboardManager.houseModel)
                             case 2:
                                 EngineeringView()
+                            case 3:
+                                FactoryList()
+                                    .environmentObject(dashboardManager)
                             default:
-                                EngineeringView()
+                                FactoryList()
+                                    .environmentObject(dashboardManager)
                             }
                         } label: {
                             MainRowView(mainRow: row)

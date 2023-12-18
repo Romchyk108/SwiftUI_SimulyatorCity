@@ -10,12 +10,12 @@ import SwiftUI
 @main
 struct SimulatorSwiftUIApp: App {
     let persistenceController = PersistenceController.shared
-    @StateObject var dashboardManager = DashboardManager()
+    @StateObject var dashboardModel = DashboardModel()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(dashboardManager)
+                .environmentObject(dashboardModel.dashboardManager)
         }
     }
 }
