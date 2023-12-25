@@ -30,10 +30,8 @@ class DashboardManager: ObservableObject {
     
     var energyManager = GeneratingEnergyManager()
     var houseModel = HouseModel()
-    
-    var bakery = Factory(id: 0, title: "Bakery", iconName: "bakery", color: .cyan, price: 100000, factoryConsumeEnergy: 250, workersForShift: 20, profit: 30, timeForBuild: 15)
-    var milkFactory = Factory(id: 1, title: "Mick factory", iconName: "milkFactory", color: .teal, price: 75000, factoryConsumeEnergy: 100, workersForShift: 35, profit: 50, timeForBuild: 13)
-    var factories = [Factory]()
+    var factoryModel = FactoryModel()
+    var educationModel: EducationModel
     
     private var year: Int = 0
     private var month: Int = 0
@@ -43,7 +41,8 @@ class DashboardManager: ObservableObject {
     var weather: Weather = .cloudy
     var workers: Int {
         self.energyManager.energyUnits.map{ $0.totalWorkers }.reduce(0, +)
-        + factories.reduce(0, { $0 + $1.totalWorkers })
+        + factoryModel.farmsAndFactories.reduce(0, { $0 + $1.totalWorkers })
+        + educationModel.educationUnits.reduce(0, { $0 + $1.workers })
     }
     var people: Int {
         Int(round(Double(workers) * 2.5))
@@ -67,14 +66,14 @@ class DashboardManager: ObservableObject {
         default:
             coefficient = Double(Array(30...55).randomElement() ?? 35) / 100.0
         }
-        return houseModel.houses.reduce(0, { $0 + $1.consumeElectricity }) * coefficient +
-        factories.reduce(0, { $0 + $1.totalConsumeEnergy })
+        return houseModel.houses.reduce(0, { $0 + $1.consumeElectricity }) * coefficient
+        + factoryModel.farmsAndFactories.reduce(0, { $0 + $1.totalConsumeEnergy })
     }
     
     var profit: Double {
         let sellElectricity: Bool = UserDefaults.standard.bool(forKey: "sellElectricity")
         let differencesElectricity = sellElectricity ? dashboard.generatedEnergy - (dashboard.consumeEnergy * 0.95) : 0.0
-        let profit = differencesElectricity * 0.04 + factories.reduce(0, { $0 + $1.totalProfit})
+        let profit = differencesElectricity * 0.04 + factoryModel.farmsAndFactories.reduce(0, { $0 + $1.totalProfit})
         return profit
     }
     
@@ -89,10 +88,10 @@ class DashboardManager: ObservableObject {
     }
     
     init() {
+        self.educationModel = EducationModel()
         self.dashboard = Dashboard(money: 0, workers: 0, people: 0, placesForPeople: 0, date: "", weather: "", energyPrice: 0.0, generatedEnergy: 0.0, consumeEnergy: 0.0, state: .pause)
         self.dashboard = createDashboard()
-        self.factories = [bakery, milkFactory]
-        self.factories.forEach({ $0.timeDelegate = self })
+        self.factoryModel.farmsAndFactories.forEach({ $0.timeDelegate = self })
         
         setRunner()
         energyManager.energyUnits.first(where: { $0.id == 0 })?.delegate = houseModel
@@ -126,7 +125,8 @@ class DashboardManager: ObservableObject {
         energyManager.energyUnits.forEach({ $0.checkTime()})
         houseModel.houses.forEach({ $0.checkTime() })
         setUpPeopleInTheirHouse()
-        factories.forEach({ $0.checkTime() })
+        factoryModel.farmsAndFactories.forEach({ $0.checkTime() })
+        educationModel.update(people: self.people)
         Money.addProfit(self.profit)
     }
     

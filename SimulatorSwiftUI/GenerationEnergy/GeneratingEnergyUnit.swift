@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-class GeneratingEnergyUnit: ObservableObject, Identifiable, CreatorTimeLine {
+class GeneratingEnergyUnit: ObservableObject, Identifiable, CreatorTimeLine, CalculatorProcess {
     let id: Int
     let title: String
     let image: String
     let color: Color
     let price: Int
-    let timeForBuilding: Double
+    let timeForBuilding: Int
     let powerPerUnit: Double
     let workerPerUnit: Double
     let description: String
@@ -40,7 +40,7 @@ class GeneratingEnergyUnit: ObservableObject, Identifiable, CreatorTimeLine {
     
     weak var delegate: SESOnHouseDelegate?
     
-    init(id: Int, title: String, image: String, color: Color, price: Int, timeForBuilding: Double, powerPerUnit: Double, workerPerUnit: Double, description: String, dependentOnWeather: Bool = false) {
+    init(id: Int, title: String, image: String, color: Color, price: Int, timeForBuilding: Int, powerPerUnit: Double, workerPerUnit: Double, description: String, dependentOnWeather: Bool = false) {
         self.id = id
         self.title = title
         self.image = image
@@ -73,7 +73,7 @@ class GeneratingEnergyUnit: ObservableObject, Identifiable, CreatorTimeLine {
     }
     
     func checkTime() {
-        self.buildingProcess = getProgressValue()
+        self.buildingProcess = calculateProcess(array: finishTime, period: timeForBuilding)
         finishBuild()
         if autoAdding, canTappedPlus(), finishTime.isEmpty {
             tappedPlus()
@@ -82,11 +82,11 @@ class GeneratingEnergyUnit: ObservableObject, Identifiable, CreatorTimeLine {
     
     private func getProgressValue() -> Double {
         guard let time = finishTime.first else { return 0.0 }
-        return 1.0 - ((1.0 / timeForBuilding) * ((time - DashboardManager.currentTime) / 3600))
+        return 1.0 - ((1.0 / Double(timeForBuilding)) * ((time - DashboardManager.currentTime) / 3600))
     }
     
     private func predictFinishBuild(since: Double) {
-        finishTime.append(since + timeForBuilding * 3600)
+        finishTime.append(since + Double(timeForBuilding) * 3600)
     }
     
     private func finishBuild() {

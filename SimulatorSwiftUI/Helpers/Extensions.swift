@@ -120,3 +120,10 @@ extension CreatorTimeLine {
         return "\(year).\(month).\(day) / \(hour)"
     }
 }
+
+extension CalculatorProcess {
+    func calculateProcess(array: [Double], period: Int) -> Double {
+        guard let time = array.first else { return 0.0 }
+        return min(1.0 - (((time - DashboardManager.currentTime) / 3600) / Double(period)), 1.0)
+    }
+}

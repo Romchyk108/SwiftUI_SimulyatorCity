@@ -17,7 +17,15 @@ struct FactoryDetailView: View {
                     .resizable()
                     .clipShape(Circle())
                     .frame(width: 250, height: 250)
-                Text(factory.title)
+                    .blur(radius: factory.isOpenFactory ? 0.0 : 3.0)
+                HStack {
+                    Text(factory.title)
+                    if factory.isImprovedFactory{
+                        Image(systemName: "star")
+                            .font(.title3)
+                            .foregroundColor(.yellow)
+                    }
+                }
                 Button {
                     factory.isOpenFactory ? factory.closeFactory() : factory.openFactory()
                 } label: {
@@ -29,8 +37,8 @@ struct FactoryDetailView: View {
                 }
                 .disabled(!factory.finishTime.isEmpty)
                 .frame(width: 250, height: 35)
-                .foregroundColor(.blue)
-                .background(Color.green)
+                .foregroundColor(factory.isOpenFactory ? .blue : .black)
+                .background(factory.isOpenFactory ? .green : .gray)
                 .cornerRadius(10)
                 
                 
@@ -47,11 +55,11 @@ struct FactoryDetailView: View {
                     }
                     
                     HStack {
-                        
+                        Text("Number of shifts: \(factory.numberOfShifts)")
                         Spacer()
                         Text("\(factory.totalProfit.scale)")
                         Image(systemName: "dollarsign")
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.green)
                     }
                     
                     HStack {
@@ -93,6 +101,7 @@ struct FactoryDetailView: View {
                                     .font(.largeTitle)
                                     .frame(width: 30, height: 30)
                             }
+                            .disabled(factory.shifts.count == 3)
                             Button {
                                 factory.removeShift()
                             } label: {
@@ -100,21 +109,32 @@ struct FactoryDetailView: View {
                                     .font(.largeTitle)
                                     .frame(width: 30, height: 30)
                             }
-                        }
-                        
-                        ForEach(0..<factory.numberOfShifts) { index in
-                            HStack {
-                                ProgressView(value: factory.processBuilding, label: {
-                                    Text(String(format: "%2.1f", (factory.processBuilding * 100)) + "%")
-                                })
-                                .offset(y: 100)
-                                .progressViewStyle(.roundedRectangle)
-                            }
-                            .frame(height: 200)
+                            .disabled(factory.shifts.isEmpty)
                         }
                     }
                     .padding(.horizontal)
-                    
+                }
+                
+                if factory.isOpenFactory, factory.isInventedImprovingFactory, !factory.isImprovedFactory {
+                    VStack {
+                        Button {
+                            factory.improve()
+                        } label: {
+                            Text("Upgrade your \(factory.title)")
+                        }
+                        .disabled(factory.isImprovedFactory)
+                        .frame(width: 250, height: 35)
+                        .foregroundColor(.blue)
+                        .background(factory.isImprovedFactory ? .gray : .green)
+                        .cornerRadius(10)
+                        
+                        if factory.isInventedImprovingFactory, factory.finishImproving != 0.0 {
+                            ProgressView(value: factory.processImproving, label: {
+                                Text(String(format: "%2.1f", (factory.processImproving * 100)) + "%")
+                            })
+                        }
+                    }
+                    .padding(.horizontal)
                 }
             }
         }

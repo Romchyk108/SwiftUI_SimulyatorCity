@@ -30,6 +30,12 @@
 		8DB2A6DE2B1CA00F00E56249 /* Stars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB2A6DD2B1CA00F00E56249 /* Stars.swift */; };
 		8DC52B652B23237100D0B5AE /* EngineeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC52B642B23237100D0B5AE /* EngineeringView.swift */; };
 		8DDB50C22B1A59F3005D8A11 /* ConstructionTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB50C12B1A59F3005D8A11 /* ConstructionTeam.swift */; };
+		8DF4638D2B33824F00664CE5 /* FactoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4638C2B33824F00664CE5 /* FactoryModel.swift */; };
+		8DF463942B349A3500664CE5 /* EducationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF463932B349A3500664CE5 /* EducationList.swift */; };
+		8DF463962B349CA600664CE5 /* EducationUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF463952B349CA600664CE5 /* EducationUnit.swift */; };
+		8DF463982B34CB5F00664CE5 /* EducationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF463972B34CB5F00664CE5 /* EducationRowView.swift */; };
+		8DF4639A2B34D54D00664CE5 /* EducationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF463992B34D54D00664CE5 /* EducationDetailView.swift */; };
+		8DF4639C2B34DB7A00664CE5 /* EducationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4639B2B34DB7A00664CE5 /* EducationModel.swift */; };
 		8DFF7BAC2A48900D00E44077 /* SimulatorSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BAB2A48900D00E44077 /* SimulatorSwiftUIApp.swift */; };
 		8DFF7BAE2A48900D00E44077 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF7BAD2A48900D00E44077 /* ContentView.swift */; };
 		8DFF7BB02A48900F00E44077 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DFF7BAF2A48900F00E44077 /* Assets.xcassets */; };
@@ -71,6 +77,12 @@
 		8DB2A6DD2B1CA00F00E56249 /* Stars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stars.swift; sourceTree = "<group>"; };
 		8DC52B642B23237100D0B5AE /* EngineeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineeringView.swift; sourceTree = "<group>"; };
 		8DDB50C12B1A59F3005D8A11 /* ConstructionTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructionTeam.swift; sourceTree = "<group>"; };
+		8DF4638C2B33824F00664CE5 /* FactoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryModel.swift; sourceTree = "<group>"; };
+		8DF463932B349A3500664CE5 /* EducationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationList.swift; sourceTree = "<group>"; };
+		8DF463952B349CA600664CE5 /* EducationUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationUnit.swift; sourceTree = "<group>"; };
+		8DF463972B34CB5F00664CE5 /* EducationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationRowView.swift; sourceTree = "<group>"; };
+		8DF463992B34D54D00664CE5 /* EducationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationDetailView.swift; sourceTree = "<group>"; };
+		8DF4639B2B34DB7A00664CE5 /* EducationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationModel.swift; sourceTree = "<group>"; };
 		8DFF7BA82A48900D00E44077 /* SimulatorSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimulatorSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DFF7BAB2A48900D00E44077 /* SimulatorSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorSwiftUIApp.swift; sourceTree = "<group>"; };
 		8DFF7BAD2A48900D00E44077 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,15 +135,16 @@
 			path = GenerationEnergy;
 			sourceTree = "<group>";
 		};
-		8D6572D32B29EC65003BD7F2 /* Factorys */ = {
+		8D6572D32B29EC65003BD7F2 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
 				8D6572D62B29FAB8003BD7F2 /* Factory.swift */,
 				8D6572D82B29FE38003BD7F2 /* FactoryViewRow.swift */,
 				8D6572DA2B2A4674003BD7F2 /* FactoryList.swift */,
+				8DF4638C2B33824F00664CE5 /* FactoryModel.swift */,
 				8D6572DC2B2A48D0003BD7F2 /* FactoryDetailView.swift */,
 			);
-			path = Factorys;
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		8DC52B632B23233C00D0B5AE /* Engineering */ = {
@@ -141,6 +154,18 @@
 				8D8DB7FC2B236F0F00FAC088 /* EngineeringManager.swift */,
 			);
 			path = Engineering;
+			sourceTree = "<group>";
+		};
+		8DF463922B3499EA00664CE5 /* Education */ = {
+			isa = PBXGroup;
+			children = (
+				8DF463932B349A3500664CE5 /* EducationList.swift */,
+				8DF4639B2B34DB7A00664CE5 /* EducationModel.swift */,
+				8DF463972B34CB5F00664CE5 /* EducationRowView.swift */,
+				8DF463992B34D54D00664CE5 /* EducationDetailView.swift */,
+				8DF463952B349CA600664CE5 /* EducationUnit.swift */,
+			);
+			path = Education;
 			sourceTree = "<group>";
 		};
 		8DFF7B9F2A48900D00E44077 = {
@@ -165,7 +190,8 @@
 				8DFF7BAB2A48900D00E44077 /* SimulatorSwiftUIApp.swift */,
 				8DFF7BAD2A48900D00E44077 /* ContentView.swift */,
 				8DDB50C12B1A59F3005D8A11 /* ConstructionTeam.swift */,
-				8D6572D32B29EC65003BD7F2 /* Factorys */,
+				8DF463922B3499EA00664CE5 /* Education */,
+				8D6572D32B29EC65003BD7F2 /* Factories */,
 				8D4668B82A64080B009F52D8 /* Houses */,
 				8D532C0E2A4C6ED900F66DAB /* GenerationEnergy */,
 				8DFF7BF92A4ABED000E44077 /* MainRow */,
@@ -297,7 +323,9 @@
 			files = (
 				8D532C122A4CB66B00F66DAB /* FinishedMark.swift in Sources */,
 				8DFF7BCB2A48C56800E44077 /* DashboardModel.swift in Sources */,
+				8DF463942B349A3500664CE5 /* EducationList.swift in Sources */,
 				8D6572D72B29FAB8003BD7F2 /* Factory.swift in Sources */,
+				8DF463962B349CA600664CE5 /* EducationUnit.swift in Sources */,
 				8DFF7BFB2A4ABF0300E44077 /* MainRow.swift in Sources */,
 				8D6572D92B29FE38003BD7F2 /* FactoryViewRow.swift in Sources */,
 				8D532C0D2A4C3B0D00F66DAB /* GeneratingEnergyRow.swift in Sources */,
@@ -311,6 +339,7 @@
 				8DB2A6DE2B1CA00F00E56249 /* Stars.swift in Sources */,
 				8DC52B652B23237100D0B5AE /* EngineeringView.swift in Sources */,
 				8D532C0B2A4B621900F66DAB /* GeneratingEnergyUnit.swift in Sources */,
+				8DF463982B34CB5F00664CE5 /* EducationRowView.swift in Sources */,
 				8D532C712A50B38800F66DAB /* PieCharView.swift in Sources */,
 				8D8DB7FD2B236F0F00FAC088 /* EngineeringManager.swift in Sources */,
 				8DDB50C22B1A59F3005D8A11 /* ConstructionTeam.swift in Sources */,
@@ -320,7 +349,9 @@
 				8D6DC4B02A64799000D30F44 /* Money.swift in Sources */,
 				8D6572DD2B2A48D0003BD7F2 /* FactoryDetailView.swift in Sources */,
 				8DFF7BAE2A48900D00E44077 /* ContentView.swift in Sources */,
+				8DF4639C2B34DB7A00664CE5 /* EducationModel.swift in Sources */,
 				8D4668BA2A64082C009F52D8 /* House.swift in Sources */,
+				8DF4639A2B34D54D00664CE5 /* EducationDetailView.swift in Sources */,
 				8D532C6F2A5095B400F66DAB /* PieSliceView.swift in Sources */,
 				8DFF7BAC2A48900D00E44077 /* SimulatorSwiftUIApp.swift in Sources */,
 				8D4668C02A643420009F52D8 /* HouseDetailView.swift in Sources */,
@@ -328,6 +359,7 @@
 				8D532C102A4C7DE700F66DAB /* GeneratingEnergyDetailView.swift in Sources */,
 				8D4668B72A6407F7009F52D8 /* HousesList.swift in Sources */,
 				8DFF7BF82A4ABC6500E44077 /* MainRowView.swift in Sources */,
+				8DF4638D2B33824F00664CE5 /* FactoryModel.swift in Sources */,
 				8D6572DB2B2A4674003BD7F2 /* FactoryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,8 +10,9 @@ import CoreData
 
 var mainRows: [MainRow] = [MainRow(id: 0, title: "Generating Energy", image: "generateEnergy", description: "Some description1"),
                            MainRow(id: 1, title: "Hauses", image: "mainRowHause", description: "Some description2"),
-                           MainRow(id: 2, title: "Engineering", image: "engineering", description: "Some description3"),
-                           MainRow(id: 3, title: "Factories", image: "foodFactories", description: "factories")]
+                           MainRow(id: 2, title: "Factories", image: "foodFactories", description: "factories"),
+                           MainRow(id: 3, title: "Education", image: "education", description: "Education"),
+                           MainRow(id: 4, title: "Engineering", image: "engineering", description: "Some description3")]
 
 func localizedString(_ text: String) -> String {
     NSLocalizedString(text, comment: "")
@@ -34,13 +35,11 @@ struct ContentView: View {
                             case 1:
                                 HousesList(houseModel: dashboardManager.houseModel)
                             case 2:
-                                EngineeringView()
+                                FactoryList(factoryModel: dashboardManager.factoryModel)
                             case 3:
-                                FactoryList()
-                                    .environmentObject(dashboardManager)
+                                EducationList(dashboardManager: dashboardManager)
                             default:
-                                FactoryList()
-                                    .environmentObject(dashboardManager)
+                                EngineeringView()
                             }
                         } label: {
                             MainRowView(mainRow: row)

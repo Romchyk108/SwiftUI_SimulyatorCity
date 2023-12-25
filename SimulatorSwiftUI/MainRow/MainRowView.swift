@@ -14,8 +14,8 @@ struct MainRowView: View {
             Image(mainRow.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .clipShape(Circle())
-                .frame(width: 150, height: 150)
+                .frame(width: 170, height: 150)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
             VStack(spacing: 10) {
                 Text(mainRow.title)
                     .font(.system(size: 16))

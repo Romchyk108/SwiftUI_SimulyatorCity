@@ -58,7 +58,7 @@ class House: ObservableObject, Identifiable, CreatorTimeLine {
     }
     
     func checkTime() {
-        calculateBuildingProcess()
+        buildingProcess = calculateProcess(array: finishTime, period: timeForBuild)
         finishBuilding()
     }
     
@@ -89,9 +89,6 @@ class House: ObservableObject, Identifiable, CreatorTimeLine {
             self.count += 1
         }
     }
-    
-    private func calculateBuildingProcess() {
-        guard let time = finishTime.first else { return }
-        buildingProcess = 1.0 - ((1.0 / Double(timeForBuild)) * ((time - DashboardManager.currentTime) / 3600))
-    }
 }
+
+extension House: CalculatorProcess { }
